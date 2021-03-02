@@ -14,7 +14,7 @@ body {
     width: 70%;
     height: 400px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 150px;
     text-align: center;
     opacity: 0.85;
     border-radius: 30px;
@@ -24,7 +24,7 @@ body {
 .headerContainer {
     background-color: rgb(255, 255, 255);
     width: 100%;
-    height: 110px;    
+    height: 120px;    
     position: relative;
 }
 
@@ -67,4 +67,8 @@ a {
 #navLogout {
     margin-left: 20px;
     margin-right: 20px;
+}
+
+#errorMsg {
+    color: red;
 }

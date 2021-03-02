@@ -1,7 +1,7 @@
 const express = require('express')
 const ejsLayouts = require('express-ejs-layouts')
 const rowdy = require('rowdy-logger')
-const axios = require('axios')
+// const axios = require('axios') // delete? maybe
 const morgan = require('morgan')
 const db = require('./models')
 
