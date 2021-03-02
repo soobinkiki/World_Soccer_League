@@ -1,0 +1,33 @@
+{
+  "name": "world_soccer_league",
+  "version": "1.0.0",
+  "description": "## Overview - If you love soccer, you may wonder what kind of leagues are out there in every single country. Soccer Lover helps you to search and see the entire list of the league by each country.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soobinkiki/World_Soccer_League.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soobinkiki/World_Soccer_League/issues"
+  },
+  "homepage": "https://github.com/soobinkiki/World_Soccer_League#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.5",
+    "crypto-js": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "morgan": "^1.10.0",
+    "pg": "^8.5.1",
+    "rowdy-logger": "^1.0.2",
+    "sequelize": "^6.5.0"
+  }
+}
