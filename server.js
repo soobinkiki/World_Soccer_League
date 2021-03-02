@@ -11,7 +11,6 @@ const PORT = process.env.PORT || 3000;
 const cryptoJS = require('crypto-js')
 const AES = require('crypto-js')
 
-
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(require('cookie-parser')())
@@ -22,9 +21,6 @@ app.use(express.static('public'))
 app.use(async (req, res, next) => {  
     if (req.cookies.userId) {
         const decryptedId = cryptoJS.AES.decrypt(req.cookies.userId, 'abcdefg').toString(cryptoJS.enc.Utf8)
-
-        console.log(decryptedId);
-        ㅂ
         const user = await db.user.findOne({
             where: {
                 id: decryptedId
@@ -44,7 +40,6 @@ app.get('/', (req, res) => {
 app.use('/users', require('./controllers/userController'))
 app.use('/country', require('./controllers/countryController'))
 app.use('/login', require('./controllers/userLogInController'))
-
 
 app.listen(PORT, () => {
     rowdyResult.print()
