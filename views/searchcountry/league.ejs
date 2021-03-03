@@ -10,16 +10,18 @@
                 <h2 id><%= leagueLists[i].strLeague  %></h2>
                 <h5>Division: <%= leagueLists[i].strDivision  %></h5>
                 <h5>Current Season: <%= leagueLists[i].strCurrentSeason %></h5>
-                <h5>Gender: <%= leagueLists[i].strGender %></h5>
+                <h5>Gender: <%= leagueLists[i].strGender %></h5></br>
                 <img id="leagueBanner" src="<%=leagueLists[i].strBanner %>" alt="<%=leagueLists[i].strBadge %>" onerror="this.onerror=null; this.src='<%= leagueLists[i].strBadge%>';" />
+                
                 <div class="followClubsTag">
                     <form action="/follow" method="POST">
-                        <input type="hidden" value="<%= club.name %>">
+                        <input type="hidden" name="leagueId" value="<%=leagueLists[i].idLeague%>">
                         <input id="followId" type="submit" value="FOLLOW">
                     </form>
+
                     <form action="/country/club" method="GET">
-                        <input type="hidden" name="clubList">
-                        <input id="clubId" type="submit" name="clubList" value="CLUB LISTS">
+                        <input type="hidden" name="leagueId" value="<%=leagueLists[i].idLeague%>">
+                        <input id="clubId" type="submit" value="CLUB LISTS">
                     </form>
                     </br></br></br>
                 </div>

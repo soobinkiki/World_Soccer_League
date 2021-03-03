@@ -14,15 +14,13 @@ router.post('/', async (req, res) => {
                 username: req.body.username
             }
         })
-
         if (bcrypt.compareSync(req.body.password, foundUsername.dataValues.password)) {
             const encryptedId = AES.encrypt(foundUsername.id.toString(), 'secret').toString()
             res.cookie('userId', encryptedId)
             res.redirect('/country')
         } else {
-          res.render('users/loginFail')
+          res.render('user/loginFail')
         }
-    
     } catch (err) {
         console.log(err);
     }

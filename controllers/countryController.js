@@ -13,7 +13,7 @@ router.get('/league', async (req, res) => {
             res.redirect('/country')
             return
         }
-        const leagueInfoURL = `https://www.thesportsdb.com/api/v1/json/1/search_all_leagues.php?c=${req.query.typedCountryName}`
+        const leagueInfoURL = `https://www.thesportsdb.com/api/v1/json/1/search_all_leagues.php?c=${req.query.typedCountryName}&s=Soccer`
         const leagueResponse = await axios.request(leagueInfoURL)
         const leagueLists = leagueResponse.data
         
@@ -23,49 +23,22 @@ router.get('/league', async (req, res) => {
     }
 })
 
-// router.get('/lists', (req, res) => {
-//     res.render('searchcountry/countrylists')
-// })
 
+// when user clicks to see the club lists
+router.get('/club', async (req, res) => {
+    try {
+        const clubURL = `https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=${req.query.leagueId}` 
+        const response = await axios.get(clubURL)
+        const clubs = response.data
+
+        const leagueInfoURL = `https://www.thesportsdb.com/api/v1/json/1/search_all_leagues.php?c=${req.query.typedCountryName}&s=Soccer`
+        const leagueResponse = await axios.request(leagueInfoURL)
+        const leagueLists = leagueResponse.data
+        
+
+        res.render('club/showClub', { clubs: clubs.teams, leagueLists: leagueLists.countrys,leagueInfoURL: leagueInfoURL  })
+    } catch (err) {
+        console.log(err);
+    }})
 
 module.exports = router;
-
-
-
-
-/* Routes */
-// router.get('')
-// router.get('/', async (req, res) => {
-//     try {
-//         console.log('adjkflajdflajdfjadfjald')
-//         const axios = require('axios')
-
-//         const leagueInfoURL = {
-//             url: 'https://api-football-v1.p.rapidapi.com/leagues',
-//             headers: {
-//                 'x-rapidapi-key': '1be5738639msh5d16bb510d9154cp1b271cjsna787e1a9bcb5',
-//                 'x-rapidapi-host': 'api-football-v1.p.rapidapi.com'
-//             }
-//         }
-//         const response = await axios.request(leagueInfoURL)
-//         const leagues = response.data
-//         const countryResults = leagues.api.leagues
-
-//         //find object key in object
-//         let countryKeyObjs = Object.keys(countryResults).filter(key => countryResults[key].country === `${req.query.typedCountryName}`)
-//         let filteredLeaguesId = []
-//         let filteredleagueName = []
-//         for (let i=0; i < countryKeyObjs.length; i++) {
-//             const leagueName = countryResults[countryKeyObjs[i]].name
-//             const leagueId = countryResults[countryKeyObjs[i]].league_id
-//             if (!filteredleagueName.includes(leagueName)){
-//                 filteredLeaguesId.push(leagueId);
-//                 filteredleagueName.push(leagueName);
-//             }
-//             // tempcountryResults[countryKeyObjs[i]].name
-//         }
-//         res.render('country/index', { countryResults: countryResults, countryKeyObjs: filteredLeaguesId, leagueNames: filteredleagueName })
-//     } catch (err) {
-//         console.log(err);
-//     }
-// })

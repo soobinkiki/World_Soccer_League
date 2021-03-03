@@ -40,6 +40,7 @@ app.get('/', (req, res) => {
 app.use('/users', require('./controllers/userController'))
 app.use('/country', require('./controllers/countryController'))
 app.use('/login', require('./controllers/userLogInController'))
+app.use('/follow', require('./controllers/followController'))
 
 app.listen(PORT, () => {
     rowdyResult.print()

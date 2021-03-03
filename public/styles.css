@@ -86,13 +86,13 @@ a {
     margin-bottom: 15px;
 }
 
-.leagueLayout {
+.leagueLayout, .clubLayout, #clubHeaderText {
     text-align: center;
 }
 
-#leagueBanner {
-    max-width: 150px;
-    max-height: 150px;
+#leagueBanner, #clubBanner {
+    max-width: 220px;
+    max-height: 220px;
 }
 
 .leaguesLists {
