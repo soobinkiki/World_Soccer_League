@@ -2,12 +2,15 @@
     <h1 id="headerText"><a href="/">World Soccer League</a></h1>
     <% if (user) { %>
         <nav>
-            <a class="navHeader" id="navProfile" href="/">Home</a>
-            <a class="navHeader" id="navSearch" href="/country">Search</a>
-            <a class="navHeader" id="navLogout" href="/users/follow">Following Club</a>    
-            <a class="navHeader" id="navLogin" href="/users/logout">Log out</a>
+            <a class="navHeader" id="navSearch" href="/country">SEARCH</a>
+            <a class="navHeader" id="navFollow" href="/users/follow">FOLLOWING</a>    
+            <a class="navHeader" id="navLogout" href="/users/logout">LOGOUT</a>
         </nav>
-    <% } %>
+        <% } else { %>
+        <nav>
+            <a class="navHeader" id="navHome" href="/">HOME</a>
+        </nav>
+    <% } %> 
 </div>
 
 

@@ -1,19 +1,20 @@
 <div class="main-index">
     <h1>Hi, Welcome to World Soccer League!</h1>
-    </br>
     <h3>Soccer is a global sport with players from every country and league in almost as many. Have you ever wondered how many leagues are in the other country?</h3>
     <h3>Please sign up to see the entire lists of the leagues, already have an account?  <a href="/login">Sign in here</a></h3></br>
     <form action="/users" method="POST">
-        <label for="username"><b>Username</b></label>
-        <input type="text" name="username" value="username" onclick="this.value=''";>
+        
+        <div><label for="username"><b>Username</b></label></div>
+        <div><input class="loginInputArea" type="text" name="username" value="username" onclick="this.value=''";></div>
 
-        <span id="labelEmail">
-        <label for="email"><b>e-mail</b></label>
-        <input type="text" name="email" value="abc@wsl.com" onclick="this.value=''";>
-        </span>
-        <label for="password"><b>Password</b></label>
-        <input type="password" name="password" value="12345678" onclick="this.value=''";>
+        <div class="SignUpInputSpace">
+            <div><label for="email"><b>E-mail</b></label></div>
+            <div><input class="loginInputArea" type="text" name="email" value="abc@wsl.com" onclick="this.value=''";></div>
+        </div>
 
-        <input type="submit" value="Sign up">
+        <div><label for="password"><b>Password</b></label></div>
+        <div><input class="loginInputArea" type="password" name="password" value="12345678" onclick="this.value=''";></div>
+
+        <div><input class="submit" type="submit" value="Sign up"></div>
     </form>
 </div>

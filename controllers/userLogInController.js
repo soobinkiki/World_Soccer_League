@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const db = require('../models')
-const cryptoJS = require('crypto-js')
-const AES = require('crypto-js')
+const AES = require('crypto-js/aes')
+const bcrypt = require('bcrypt')
 
 router.get('/', async (req, res) => {
     res.render('user/login')
@@ -9,25 +9,20 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const decryptedPassword = cryptoJS.AES.decrypt(req.cookies.password, 'abcdefg').toString(cryptoJS.enc.Utf8)
-        
-        const compareDatabase = await db.user.findOne({
+        const foundUsername = await db.user.findOne({
             where: {
                 username: req.body.username
             }
         })
-        if(compareDatabase != null && 
-            decryptedPassword === req.body.password) {
-        console.log(compareDatabase);
-        console.log(compareDatabase.dataValues);
-        console.log(compareDatabase.dataValues.password);
+
+        if (bcrypt.compareSync(req.body.password, foundUsername.dataValues.password)) {
+            const encryptedId = AES.encrypt(foundUsername.id.toString(), 'secret').toString()
+            res.cookie('userId', encryptedId)
             res.redirect('/country')
         } else {
-            res.render('user/loginFail')
-            console.log(compareDatabase);
-        console.log(compareDatabase.dataValues);
-        console.log(compareDatabase.dataValues.password);
+          res.render('users/loginFail')
         }
+    
     } catch (err) {
         console.log(err);
     }

@@ -1,7 +1,7 @@
 body {
-    background-image: url('https://wallpaperaccess.com/full/2514327.jpg');
+    /* background-image: url('https://wallpaperaccess.com/full/2514327.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     margin: 0;
     padding: 0;
     position: relative;
@@ -40,8 +40,9 @@ body {
     color: black;
 } */
 
-#labelEmail {
-    padding: 15px;
+.SignUpInputSpace {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 nav {
@@ -59,16 +60,46 @@ a {
     text-decoration: none;
 }
 
-#navLogin {
-    margin-right: 20px;
-    margin-left: 10px;
-}
-
-#navLogout {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 #errorMsg {
     color: red;
+}
+
+#navSearch, #navLogout, #navHome {
+    padding: 15px;
+}
+/* #navHome {
+    padding: 15px;
+} */
+
+.loginInputArea {
+    padding: 6px;
+    width: 200px;
+    text-align: center;
+}
+
+.submit {
+    margin-top: 20px;
+    width: 80px;
+}
+
+#loginPasswordText {
+    margin-bottom: 15px;
+}
+
+.leagueLayout {
+    text-align: center;
+}
+
+#leagueBanner {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.leaguesLists {
+    border: 1px solid black;
+}
+
+#countryNameText {
+    text-align: center;
+    font-size: 50px;
 }

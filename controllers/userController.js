@@ -14,14 +14,13 @@ router.post('/', async (req, res) => {
             email: req.body.email,
             password: hashedPassword
         })
-        const userName = req.body.username
-        const encryptedId = AES.encrypt(newUser.id.toString(), 'abcdefg').toString()
+        const encryptedId = AES.encrypt(newUser.id.toString(), 'secret').toString()
         const encryptedIdString = encryptedId.toString()
         res.cookie('userId', encryptedIdString)
-        console.log(userName)
-        res.render('user/welcome', { userName: userName })
-    } catch {
-        console.log(err);
+
+        res.redirect('/country')
+    } catch (error) {
+        console.log(error);
     }
 })
 
@@ -29,10 +28,6 @@ router.get('/logout', async (req, res) => {
     res.clearCookie('userId')
     res.redirect('/')
 })
-
-
-  
-  
 
 
 module.exports = router;

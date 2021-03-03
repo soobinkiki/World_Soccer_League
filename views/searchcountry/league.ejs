@@ -1,0 +1,22 @@
+<div class="leaguesLists">
+    <div id="countryNameText">
+        <h1><%= leagueLists[0].strCountry  %> </h1>
+        <h4>Get the </h4>
+    </div>
+    <div class="leagueLayout">
+        <% for( let i = 0; i < leagueLists.length; i++ ) { %>
+                <h2><%= leagueLists[i].strLeague  %></h2>
+                <img id="leagueBanner" src="<%=leagueLists[i].strBanner %>" alt="<%=leagueLists[i].strBadge %>" onerror="this.onerror=null; this.src='<%= leagueLists[i].strBadge%>';" />
+                <h2><%= leagueLists[i].strWebsite  %></h2>
+                <form action="/follow" method="POST">
+                    <input type="hidden" name="followLeague">
+                    <input type="submit" name="followLeague" value="FOLLOW">
+                </form>
+                <form action="/league/club" method="GET">
+                    <input type="hidden" name="clubList">
+                    <input type="submit" name="clubList" value="CLUB LISTS">
+                </form>
+                </br></br></br>
+        <% } %> 
+    </div>
+</div>

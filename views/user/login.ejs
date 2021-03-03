@@ -1,12 +1,14 @@
 <div class="main-index">
-    <h1>Need FORMs, have user to type username and password. If username/password matched, have a user to login</h1>
+    <h1>Log in to Your Account</h1></br>
     <form action="/login" method="POST">
-        <label for="username"><b>Username</b></label>
-        <input type="text" name="username">
-
-        <label for="password"><b>Password</b></label>
-        <input type="password" name="password">
-
-        <input type="submit" value="Sign in">
+        <div><label class="loginInput" for="username"><b>Username</b></label></div>
+        <div><input class="loginInputArea" id="loginPasswordText" type="text" name="username"></div>
+        
+        <div><label class="loginInput" for="password"><b>Password</b></label></div>
+        <div><input class="loginInputArea" type="password" name="password"></div>
+        
+        <div><input class="submit" type="submit" value="Sign in"></div>
     </form>
+
+    </br><h2>Need an account? <a href="/">Sign up</a></h2>
 </div>

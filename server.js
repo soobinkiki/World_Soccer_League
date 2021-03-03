@@ -1,7 +1,7 @@
 const express = require('express')
 const ejsLayouts = require('express-ejs-layouts')
 const rowdy = require('rowdy-logger')
-// const axios = require('axios') // delete? maybe
+const axios = require('axios') // delete? maybe
 const morgan = require('morgan')
 const db = require('./models')
 
@@ -20,7 +20,7 @@ app.use(express.static('public'))
 
 app.use(async (req, res, next) => {  
     if (req.cookies.userId) {
-        const decryptedId = cryptoJS.AES.decrypt(req.cookies.userId, 'abcdefg').toString(cryptoJS.enc.Utf8)
+        const decryptedId = cryptoJS.AES.decrypt(req.cookies.userId, 'secret').toString(cryptoJS.enc.Utf8)
         const user = await db.user.findOne({
             where: {
                 id: decryptedId
