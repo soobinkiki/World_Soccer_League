@@ -99,7 +99,30 @@ a {
     border: 1px solid black;
 }
 
+.leagueListForLoop {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 #countryNameText {
     text-align: center;
     font-size: 50px;
+}
+
+.followClubsTag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#followId {
+    margin-right: 4px;    
+}
+#clubId {
+    margin-left: 4px;    
+}
+
+h5 {
+    margin: 0;
+    padding: 0;
 }

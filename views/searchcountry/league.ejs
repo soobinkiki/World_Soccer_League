@@ -1,22 +1,31 @@
 <div class="leaguesLists">
     <div id="countryNameText">
-        <h1><%= leagueLists[0].strCountry  %> </h1>
-        <h4>Get the </h4>
+        <h2><%= leagueLists[0].strCountry  %></h1>
+        
     </div>
+
     <div class="leagueLayout">
         <% for( let i = 0; i < leagueLists.length; i++ ) { %>
-                <h2><%= leagueLists[i].strLeague  %></h2>
+            <div class="leagueListForLoop">
+                <h2 id><%= leagueLists[i].strLeague  %></h2>
+                <h5>Division: <%= leagueLists[i].strDivision  %></h5>
+                <h5>Current Season: <%= leagueLists[i].strCurrentSeason %></h5>
+                <h5>Gender: <%= leagueLists[i].strGender %></h5>
                 <img id="leagueBanner" src="<%=leagueLists[i].strBanner %>" alt="<%=leagueLists[i].strBadge %>" onerror="this.onerror=null; this.src='<%= leagueLists[i].strBadge%>';" />
-                <h2><%= leagueLists[i].strWebsite  %></h2>
-                <form action="/follow" method="POST">
-                    <input type="hidden" name="followLeague">
-                    <input type="submit" name="followLeague" value="FOLLOW">
-                </form>
-                <form action="/league/club" method="GET">
-                    <input type="hidden" name="clubList">
-                    <input type="submit" name="clubList" value="CLUB LISTS">
-                </form>
-                </br></br></br>
+                <div class="followClubsTag">
+                    <form action="/follow" method="POST">
+                        <input type="hidden" name="followLeague">
+                        <input id="followId" type="submit" name="followLeague" value="FOLLOW">
+                    </form>
+                    <form action="/country/club" method="GET">
+                        <input type="hidden" name="clubList">
+                        <input id="clubId" type="submit" name="clubList" value="CLUB LISTS">
+                    </form>
+                    </br></br></br>
+                </div>
+            </div>
+
         <% } %> 
     </div>
 </div>
+<!-- <a href="google.com">google</a>

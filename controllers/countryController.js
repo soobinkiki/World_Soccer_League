@@ -9,31 +9,14 @@ router.get('/', (req, res) => {
 
 router.get('/league', async (req, res) => {
     try {
-
-        const leagueInfoURL = `https://www.thesportsdb.com/api/v1/json/1/search_all_leagues.php?c=${req.query.typedCountryName}&s=Soccer`
-        const leagueResponse = await axios.request(leagueInfoURL)
-        console.log(leagueResponse);
-        const leagueLists = leagueResponse.data
-        // const leagueTemp = leagueLists.countrys
-
-        var maxSpeed = {
-            car: 300, 
-            bike: 60, 
-            motorbike: 200, 
-            airplane: 1000,
-            helicopter: 400, 
-            rocket: 8 * 60 * 60
-        };
-        var sortable = [];
-        for (var vehicle in maxSpeed) {
-            sortable.push([vehicle, maxSpeed[vehicle]]);
+        if (req.query.typedCountryName === "") {
+            res.redirect('/country')
+            return
         }
+        const leagueInfoURL = `https://www.thesportsdb.com/api/v1/json/1/search_all_leagues.php?c=${req.query.typedCountryName}`
+        const leagueResponse = await axios.request(leagueInfoURL)
+        const leagueLists = leagueResponse.data
         
-        sortable.sort(function(a, b) {
-            return a[1] - b[1];
-        });
-
-
         res.render('searchcountry/league', { leagueLists: leagueLists.countrys })
     } catch (err) {
         console.log(err);
