@@ -14,8 +14,8 @@
                 <img id="leagueBanner" src="<%=leagueLists[i].strBanner %>" alt="<%=leagueLists[i].strBadge %>" onerror="this.onerror=null; this.src='<%= leagueLists[i].strBadge%>';" />
                 <div class="followClubsTag">
                     <form action="/follow" method="POST">
-                        <input type="hidden" name="followLeague">
-                        <input id="followId" type="submit" name="followLeague" value="FOLLOW">
+                        <input type="hidden" value="<%= club.name %>">
+                        <input id="followId" type="submit" value="FOLLOW">
                     </form>
                     <form action="/country/club" method="GET">
                         <input type="hidden" name="clubList">
