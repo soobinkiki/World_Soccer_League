@@ -4,8 +4,12 @@
     <div class="clubLayout">
         <h1><%= clubs[i].strTeam %> </h1>
         <img id="clubBanner" src="<%= clubs[i].strTeamBadge %>" alt="<%= clubs[i].strTeam %>">
-        <h4><%= clubs[i].strStadium %> </h4>
+        <h4>Main Stadium: <%= clubs[i].strStadium %> </h4>
         <h4><%= clubs[i].strStadiumDescription %> </h4>
+        <form action="/follow/club" method="POST">
+            <input type="hidden" name="clubfollow">
+            <input type="submit" value="FOLLOW">
+        </form>
         </br></br></br>
     </div>
 <% } %>

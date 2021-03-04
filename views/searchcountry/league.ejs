@@ -1,7 +1,6 @@
 <div class="leaguesLists">
     <div id="countryNameText">
         <h2><%= leagueLists[0].strCountry  %></h1>
-        
     </div>
 
     <div class="leagueLayout">
@@ -12,13 +11,11 @@
                 <h5>Current Season: <%= leagueLists[i].strCurrentSeason %></h5>
                 <h5>Gender: <%= leagueLists[i].strGender %></h5></br>
                 <img id="leagueBanner" src="<%=leagueLists[i].strBanner %>" alt="<%=leagueLists[i].strBadge %>" onerror="this.onerror=null; this.src='<%= leagueLists[i].strBadge%>';" />
-                
                 <div class="followClubsTag">
-                    <form action="/follow" method="POST">
-                        <input type="hidden" name="leagueId" value="<%=leagueLists[i].idLeague%>">
-                        <input id="followId" type="submit" value="FOLLOW">
+                    <form action="/follow/league/<%= leagueLists[i].idLeague%>" method="POST">
+                        <input type="hidden" name="leagueId" value= "<%=leagueLists[i].idLeague%>">
+                        <input id="followId" type="submit" name="leagueId" value="FOLLOW">
                     </form>
-
                     <form action="/country/club" method="GET">
                         <input type="hidden" name="leagueId" value="<%=leagueLists[i].idLeague%>">
                         <input id="clubId" type="submit" value="CLUB LISTS">
@@ -26,8 +23,6 @@
                     </br></br></br>
                 </div>
             </div>
-
         <% } %> 
     </div>
 </div>
-<!-- <a href="google.com">google</a>

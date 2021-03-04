@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/soobinkiki/World_Soccer_League#readme",
   "dependencies": {
+    "alert": "^5.0.10",
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",

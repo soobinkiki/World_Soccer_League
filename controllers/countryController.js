@@ -23,7 +23,6 @@ router.get('/league', async (req, res) => {
     }
 })
 
-
 // when user clicks to see the club lists
 router.get('/club', async (req, res) => {
     try {
@@ -31,12 +30,7 @@ router.get('/club', async (req, res) => {
         const response = await axios.get(clubURL)
         const clubs = response.data
 
-        const leagueInfoURL = `https://www.thesportsdb.com/api/v1/json/1/search_all_leagues.php?c=${req.query.typedCountryName}&s=Soccer`
-        const leagueResponse = await axios.request(leagueInfoURL)
-        const leagueLists = leagueResponse.data
-        
-
-        res.render('club/showClub', { clubs: clubs.teams, leagueLists: leagueLists.countrys,leagueInfoURL: leagueInfoURL  })
+        res.render('club/showClub', { clubs: clubs.teams })
     } catch (err) {
         console.log(err);
     }})
