@@ -104,6 +104,9 @@ a {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+/* .temp {    // from league.ejs
+    display: flex;
+} */ 
 
 #countryNameText {
     text-align: center;

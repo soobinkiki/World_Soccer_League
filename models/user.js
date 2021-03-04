@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.user.belongsToMany(models.league, { through: 'users_leagues'})
+      models.user.belongsToMany(models.club, { through: 'users_clubs'})
     }
   };
   user.init({

@@ -6,10 +6,11 @@
         <img id="clubBanner" src="<%= clubs[i].strTeamBadge %>" alt="<%= clubs[i].strTeam %>">
         <h4>Main Stadium: <%= clubs[i].strStadium %> </h4>
         <h4><%= clubs[i].strStadiumDescription %> </h4>
-        <form action="/follow/club" method="POST">
-            <input type="hidden" name="clubfollow">
-            <input type="submit" value="FOLLOW">
-        </form>
-        </br></br></br>
+
+        <form action="/follow/club/<%= clubs[i].idTeam %>" method="POST">
+            <input type="hidden" name="clubId" value="<%= clubs[i].idTeam %>">
+            <input type="submit" name="clubId" value="FOLLOW">
+        </form></br></br></br>
+
     </div>
 <% } %>

@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.club.belongsToMany(models.user, { through: 'users_clubs'})
+
     }
   };
   club.init({
