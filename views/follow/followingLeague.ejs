@@ -1,0 +1,14 @@
+<div class="followingHeaderText">
+    <h1>Your Following Leagues</h1>
+</div>
+
+<div class="leagueLayout">
+    <% for( let i = 0; i < leagueLists.length; i++ ) { %>
+        <div class="leagueListForLoop">
+            <h2 id><%= leagueLists[i].leagues[0].strLeague  %></h2>
+            <h5>Division: <%= leagueLists[i].leagues[0].strDivision  %></h5>
+            <h5>Current Season: <%= leagueLists[i].leagues[0].strCurrentSeason %></h5>
+            <h5>Gender: <%= leagueLists[i].leagues[0].strGender %></h5></br>
+            <img id="leagueBanner" src="<%=leagueLists[i].leagues[0].strBanner %>" alt="<%=leagueLists[i].leagues[0].strBadge %>" onerror="this.onerror=null; this.src='<%= leagueLists[i].leagues[0].strBadge%>';" />
+    <% } %>
+</div>

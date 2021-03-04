@@ -35,4 +35,8 @@ router.get('/club', async (req, res) => {
         console.log(err);
     }})
 
+router.get('/lists', (req, res) => {
+    res.render('searchcountry/countryList')
+})
+
 module.exports = router;

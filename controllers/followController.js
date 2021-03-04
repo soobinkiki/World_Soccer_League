@@ -50,7 +50,7 @@ router.post('/league/:leagueId', async (req, res) => {
         // user.addLeague(oneLeague) 
         user.addLeague(oneLeague)
         // npm i alert installed
-        alert("FOLLOWING NOW!")
+        alert("FOLLOWING NOW!")    // Think of the way to change the text of the submit button
         // res.redirect(`/follow/league/${req.params.leagueId}`)
         // res.redirect('/follow/following', { abc: abc })
 
@@ -59,7 +59,11 @@ router.post('/league/:leagueId', async (req, res) => {
     }
 })
 
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
+        res.render('follow/following')
+})
+
+router.get('/list/league', async (req, res) => {
     try {
         const userFromJoinTable = await db.users_leagues.findAll({
             where: {
@@ -68,8 +72,7 @@ router.get('/', async (req, res) => {
         })
         const storeLeagueId = []
         for (let i=0; i < userFromJoinTable.length; i++) {
-            // storeLeagueId.push(userFromJoinTable[i].leagueId)
-            //userFromJoinTable[i].leagueId -> 25,26,27
+  
             const findLeaugeId = await db.league.findOne({
                 where: {
                     id: userFromJoinTable[i].leagueId
@@ -78,7 +81,6 @@ router.get('/', async (req, res) => {
             const leagueId = findLeaugeId.dataValues.leagueid;
             storeLeagueId.push(leagueId)
         }
-
         const leagueLists = []
         for (let i = 0; i < storeLeagueId.length; i++) {
             const clubURL = `https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${storeLeagueId[i]}` 
@@ -86,12 +88,30 @@ router.get('/', async (req, res) => {
             const clubs = response.data
             leagueLists.push(clubs)
         }
-
-        res.render('follow/following', { leagueLists: leagueLists})
+        res.render('follow/followingLeague', { leagueLists: leagueLists})
     } catch (err) {
         console.log(err);
     }
 })
+
+router.get('/list/club', async (req, res) => {
+    try {
+        
+
+
+
+
+
+
+
+
+        res.render('follow/followingClub')
+    } catch (err) {
+        console.log(err);
+    }
+})
+
+
 
 
 

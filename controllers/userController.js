@@ -2,11 +2,18 @@ const router = require('express').Router()
 const db = require('../models')
 const bcrypt = require('bcrypt')
 const AES = require('crypto-js/AES')
+const alert = require('alert')
 
 
 router.post('/', async (req, res) => {
     try {
         const hashedPassword = bcrypt.hashSync(req.body.password, 10)
+
+        if ((req.body.username || req.body.email || req.body.password === "" ) || 
+            (req.body.username === 'username' || req.body.email === 'abc@wsl.com' || req.body.password === '12345678')){
+            alert("Please enter the valid username, password and email")
+            return
+        }
 
         // [ADD] check to see if the username is available
         const newUser = await db.user.create({
