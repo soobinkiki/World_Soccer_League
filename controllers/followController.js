@@ -64,23 +64,30 @@ router.get('/list/league', async (req, res) => {
 
 router.post('/club/:clubId', async (req, res) => {
     try {
-        console.log(req.params.clubId);
+        // console.log(req.params.clubId);
         const clubURL = `https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${req.params.clubId}` 
         const response = await axios.get(clubURL)
         const clubs = response.data
         const clubName = clubs.teams[0].strTeam
-        const [oneClub, createdTrueOrFalse] = await db.club.findOrCreate({
+        // const oneClub = await db.club.create({   
+        //     where: {
+        //         clubname: clubName,
+        //         clubid: req.params.clubId
+        //     }
+        // })
+        const [oneClub, createdOrNot] = await db.club.findOrCreate({   // keep creating?
             where: {
                 clubname: clubName,
                 clubid: req.params.clubId
             }
         })
-        // const user = await db.user.findOne({
-        //     where :{
-        //         id: res.locals.user.dataValues.id
-        //     }
-        // })
-        // user.addClub(oneClub)
+
+        const user = await db.user.findOne({
+            where :{
+                id: res.locals.user.dataValues.id
+            }
+        })
+        user.addClub(oneClub)
         alert("NOW FOLLOWING")    // Think of the way to change the text of the submit button
     } catch (err) {
         console.log(err);
