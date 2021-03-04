@@ -64,24 +64,17 @@ router.get('/list/league', async (req, res) => {
 
 router.post('/club/:clubId', async (req, res) => {
     try {
-        // console.log(req.params.clubId);
         const clubURL = `https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${req.params.clubId}` 
         const response = await axios.get(clubURL)
         const clubs = response.data
         const clubName = clubs.teams[0].strTeam
-        // const oneClub = await db.club.create({   
-        //     where: {
-        //         clubname: clubName,
-        //         clubid: req.params.clubId
-        //     }
-        // })
-        const [oneClub, createdOrNot] = await db.club.findOrCreate({   // keep creating?
+
+        const [oneClub, createdOrNot] = await db.club.findOrCreate({
             where: {
                 clubname: clubName,
                 clubid: req.params.clubId
             }
         })
-
         const user = await db.user.findOne({
             where :{
                 id: res.locals.user.dataValues.id
@@ -94,12 +87,38 @@ router.post('/club/:clubId', async (req, res) => {
     }
 })
 
-// router.get('/list/club', async (req, res) => {
-//     try {
-//         const 
-//     } catch (err) {
-//         console.log(err);
-//     }
-// })
+router.get('/list/club', async (req, res) => {
+    try {
+        const usersClubsJoinTable = await db.users_clubs.findAll({
+            where: {
+                userId: res.locals.user.dataValues.id
+            }
+        })
+        const storeClubId = []
+        for (let i = 0; i < usersClubsJoinTable.length; i++) {
+            const findClubId = await db.club.findOne({
+                where: {
+                    id: usersClubsJoinTable[i].clubId
+                }
+            })
+            const clubIdLists = findClubId.dataValues.clubid;
+            storeClubId.push(clubIdLists)
+        }
+
+        const tempClubs = []
+        for (let i = 0; i < storeClubId.length; i++) {
+            const clubURL = `https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${storeClubId[i]}` 
+            const response = await axios.get(clubURL)
+            const responseClubs = response.data
+            tempClubs.push(responseClubs)
+        }
+        const clubs = tempClubs
+        // console.log(clubs[1].teams[0]);
+
+        res.render('follow/followingClub', { clubs: clubs})
+    } catch (err) {
+        console.log(err);
+    }
+})
 
 module.exports = router
