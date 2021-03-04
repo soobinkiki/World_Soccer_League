@@ -12,15 +12,21 @@ router.post('/league/:leagueId', async (req, res) => {
         const clubs = response.data
         const clubName = clubs.leagues[0].strLeague
 
-        /*----------- 2nd trial------worked----*/
-        // added trueOrFalse -> working
+        /*----------- 2nd------worked----*/
+        // added createdTrueOrFalse -> working
         const [oneLeague, createdTrueOrFalse] = await db.league.findOrCreate({
             where: {
                 leaguename: clubName,
                 leagueid: req.params.leagueId
             }
         })
-        /*-----------1st trial-------------*/
+        /*-----------1st-------------*/
+        // const oneLeague = await db.league.findOrCreate({
+        //     where: {
+        //         leaguename: clubName,
+        //         leagueid: req.params.leagueId
+        //     }
+        // })
         // var oneLeague = await db.league.findOrCreate({
         //     where: {
         //         leaguename: clubName
@@ -71,7 +77,6 @@ router.get('/', async (req, res) => {
             })
             const leagueId = findLeaugeId.dataValues.leagueid;
             storeLeagueId.push(leagueId)
-
         }
 
         const leagueLists = []
