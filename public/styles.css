@@ -86,7 +86,7 @@ a {
     margin-bottom: 15px;
 }
 
-.leagueLayout, .clubLayout, #clubHeaderText {
+.leagueLayout, .clubLayout, #clubHeaderText, .followingHeaderText {
     text-align: center;
 }
 

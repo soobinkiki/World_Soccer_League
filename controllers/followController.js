@@ -7,21 +7,20 @@ const alert = require('alert')
 // follow league
 router.post('/league/:leagueId', async (req, res) => {
     try {
-        // console.log("🚗🚗🚗🚗🚗🚗🚗🚗🚗", res.locals.user.dataValues.id);
         const clubURL = `https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${req.params.leagueId}` 
         const response = await axios.get(clubURL)
         const clubs = response.data
         const clubName = clubs.leagues[0].strLeague
 
-
+        /*----------- 2nd trial------worked----*/
         // added trueOrFalse -> working
         const [oneLeague, createdTrueOrFalse] = await db.league.findOrCreate({
             where: {
-                leagueId: req.params.leagueId,
-                leaguename: clubName
+                leaguename: clubName,
+                leagueid: req.params.leagueId
             }
         })
-
+        /*-----------1st trial-------------*/
         // var oneLeague = await db.league.findOrCreate({
         //     where: {
         //         leaguename: clubName
@@ -56,26 +55,34 @@ router.post('/league/:leagueId', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-
-        // const user = await db.user.findOne({
-        //     where :{
-        //         id: res.locals.user.dataValues.id
-        //     }
-        // })
-        
         const userFromJoinTable = await db.users_leagues.findAll({
             where: {
                 userId: res.locals.user.dataValues.id
             }
         })
-        // get all leaguename and use this into API(if available) to get details from each league
+        const storeLeagueId = []
+        for (let i=0; i < userFromJoinTable.length; i++) {
+            // storeLeagueId.push(userFromJoinTable[i].leagueId)
+            //userFromJoinTable[i].leagueId -> 25,26,27
+            const findLeaugeId = await db.league.findOne({
+                where: {
+                    id: userFromJoinTable[i].leagueId
+                }
+            })
+            const leagueId = findLeaugeId.dataValues.leagueid;
+            storeLeagueId.push(leagueId)
 
+        }
 
-        userFromJoinTable.dataValues.leagueId
-        // userFromJoinTable.leagueId
-        console.log(userFromJoinTable);
-    
-        // res.render('follow/following', { userFromJoinTable: userFromJoinTable})
+        const leagueLists = []
+        for (let i = 0; i < storeLeagueId.length; i++) {
+            const clubURL = `https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${storeLeagueId[i]}` 
+            const response = await axios.get(clubURL)
+            const clubs = response.data
+            leagueLists.push(clubs)
+        }
+
+        res.render('follow/following', { leagueLists: leagueLists})
     } catch (err) {
         console.log(err);
     }

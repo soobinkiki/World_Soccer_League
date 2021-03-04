@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   league.init({
-    leaguename: DataTypes.STRING
+    leaguename: DataTypes.STRING,
+    leagueid: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'league',
