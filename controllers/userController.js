@@ -9,10 +9,9 @@ router.post('/', async (req, res) => {
     try {
         const hashedPassword = bcrypt.hashSync(req.body.password, 10)
 
-        if ((req.body.username || req.body.email || req.body.password === "" ) || 
-            (req.body.username === 'username' || req.body.email === 'abc@wsl.com' || req.body.password === '12345678')){
-            alert("Please enter the valid username, password and email")
-            return
+        if (req.body.username === "" || req.body.email === "" || req.body.password === "" ) {
+            alert("Please enter the valid username, password and email rgergergerg")
+            return;
         }
 
         // [ADD] check to see if the username is available
@@ -36,5 +35,18 @@ router.get('/logout', async (req, res) => {
     res.redirect('/')
 })
 
+router.get('/profile', async (req, res) => {
+    try {
+        const findUser = await db.user.findOne({
+            where: {
+                id: res.locals.user.dataValues.id
+            }
+        })
+        const currentUser = findUser
+        res.render('user/editProfile', { currentUser: currentUser })
+    } catch (err) {
+        console.log(err);
+    }
+})
 
 module.exports = router;

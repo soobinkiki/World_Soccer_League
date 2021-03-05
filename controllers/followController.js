@@ -28,7 +28,7 @@ router.post('/league/:leagueId', async (req, res) => {
         //         id: res.locals.user.dataValues.id
         //     }
         // })
-        // const findUserFromJoinTable = await db.users_clubs.findAll({
+        // const findUserFromJoinTable = await db.users_clubs.findAll({  ------ db.user.findByPk
         //     where: {
         //         userId: findUserId.dataValues.id
         //     }

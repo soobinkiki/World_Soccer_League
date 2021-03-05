@@ -1,4 +1,3 @@
-/*--------DO NOT TOUCH----------*/
 body {
     background: linear-gradient(90deg, #a9acc9, #bbd4dc, #adcec1);
     margin: 0;
@@ -14,6 +13,37 @@ body {
     width: 100%;
     height: 120px;
 }
+.headerLink {
+    display: flex;
+    flex-direction: row-reverse;
+    background: white;
+    width: 100%;
+    height: 50px;
+}
+
+.headerLinkContainer {
+    display: flex;
+}
+
+#headerLinkLinkedIn {
+    margin-right: 50px;
+    margin-top: 60px;
+}
+#headerLinkGithub {
+    margin-right: 15px;
+    margin-top: 60px;
+}
+
+#headerImgLink {
+    width: 35px;
+    height: 35px;
+    padding: 0;
+}
+
+#copyright {
+    margin-right: 20px;
+    margin-top: 80px;
+}
 
 #headerText {
     position: absolute;
@@ -22,13 +52,12 @@ body {
     font-family: fantasy;
 }
 
-
 .navContainer {
     position: absolute;
     width: 100%;
     height: 100%;
     text-align: right;
-    margin-top: 70px;
+    margin-top: 75px;
 }
 
 .navHeader {
@@ -41,14 +70,46 @@ body {
     margin-right: 15px;
 }
 #navLogout {
-    margin-right: 50px;
+    margin-right: 400px;
+}
+#navProfile {
+    margin-right: 15px;
 }
 
 .SignUpInputSpace {
     margin-top: 15px;
     margin-bottom: 15px;
 }
-/*---------------------------------*/
+
+.edit-page {
+    background-color: white;
+    color: black;
+    padding: 50px;
+    width: 50%;
+    height: 430px;
+    margin: auto;
+    margin-top: 150px;
+    opacity: 0.85;
+    border-radius: 30px;
+    border: 2px solid rgb(80, 80, 59)
+}
+
+.userInfoTextContainer {
+    margin-top: 20px;
+    margin-left: 350px;
+    display: flex;
+}
+#userEditSubmit {
+    margin-left: 100px;
+    margin-top: 10px;
+}
+#userEditSubmit:hover{
+    transform: scale(1.1);
+}
+
+#userInfoText {
+    margin: 0;
+}
 
 .main-index {
     background-color: white;
@@ -203,15 +264,15 @@ a {
 .leagueListForLoopContainer {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 540px 540px 540px 540px 540px  
-                        540px 540px 540px 540px 540px;
+    grid-template-rows: 540px 540px 540px 540px  
+                        540px 540px 540px;
     text-align: center;
 }
 .clubListForLoopContainer {
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 540px 540px 540px 540px 540px  
-                        540px 540px 540px 540px 540px;
+    grid-template-rows: 540px 540px 540px 540px 
+                        540px 540px 540px;
     text-align: center;
 }
 
@@ -323,4 +384,6 @@ input {
 input:hover {
     cursor:pointer;
 }
-/*-------------------------*/
+
+
+

@@ -4,20 +4,31 @@
             <h1 id="headerText"><a href="/country">World Soccer League</a></h1>
         <% } else { %> 
             <h1 id="headerText"><a href="/">World Soccer League</a></h1>
-        <% } %> 
-
-        <% if (user) { %>
+        <% } %>
     </div>
-    <div>
-            <nav class="navContainer">
-                <a class="navHeader" id="navSearch" href="/country">SEARCH</a>
-                <a class="navHeader" id="navFollow" href="/follow">FOLLOWING</a>    
-                <a class="navHeader" id="navLogout" href="/users/logout">LOGOUT</a>
-            </nav>
-            <% } else { %>
-            <!-- <nav>
-                <a class="navHeader" id="navHome" href="/">HOME</a>
-            </nav> -->
+    <div class="headerLinkContainer">
+        <% if (user) { %>
+            <div>
+                <nav class="navContainer">
+                    <a class="navHeader" id="navSearch" href="/country">SEARCH</a>
+                    <a class="navHeader" id="navFollow" href="/follow">FOLLOWING</a>    
+                    <a class="navHeader" id="navProfile" href="/users/profile">PROFILE</a>
+                    <a class="navHeader" id="navLogout" href="/users/logout">LOGOUT</a>
+                </nav>
+            </div>
+            <div class="headerLink">
+                <a id="headerLinkLinkedIn" href="https://www.linkedin.com/in/justin-park-4b20b8206/"><img id="headerImgLink" src="/images/linkedin.png" alt="LinkedIn"></a></a>
+                <a id="headerLinkGithub" href="https://github.com/soobinkiki"><img id="headerImgLink" src="/images/github.png" alt="GITHUB"></a>
+                <p id="copyright">&copy; 2021 made by Justin Park</p>
+            </div>
+        <% } else { %>
+            <div class="headerLink">
+                <a id="headerLinkLinkedIn" href="https://www.linkedin.com/in/justin-park-4b20b8206/"><img id="headerImgLink" src="/images/linkedin.png" alt="LinkedIn"></a></a>
+                <a id="headerLinkGithub" href="https://github.com/soobinkiki"><img id="headerImgLink" src="/images/github.png" alt="GITHUB"></a>
+                <p id="copyright">&copy; 2021 made by Justin Park</p>
+            </div>
         <% } %> 
     </div>
 </div>
+
+

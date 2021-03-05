@@ -1,0 +1,17 @@
+<div class="edit-page">
+    <div style="text-align:center;padding:1em 0;"> 
+        <h3><a style="text-decoration:none;">
+            <span style="color:gray;">Current local time in</span><br />San Francisco, United States</a></h3> 
+        <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=medium&timezone=America%2FLos_Angeles" width="100%" height="115" frameborder="0" seamless></iframe> 
+    </div>
+    <div class="userInfoTextContainer">
+        <h1 id="userInfoText">Logged in: <%= currentUser.username %></h1></br>
+        <form action="/user/edit" method="PUT">
+            <input type="hidden" name="editUsername">
+            <input id="userEditSubmit" type="submit" name="editUsername" value="EDIT USERNAME">
+        </form>
+    </div>
+    <div class="userInfoTextContainer">
+        <h1 id="userInfoText">Email: <%= currentUser.email %> </h1>
+    </div>
+</div>
