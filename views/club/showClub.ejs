@@ -6,6 +6,7 @@
         <div class="clubListForLoop">
             <h1><%= clubs[i].strTeam %> </h1>
             <h5><%= clubs[i].strAlternate %> </h5>
+            if 
             <form action="/follow/club/<%= clubs[i].idTeam %>" method="POST">
                 <input type="hidden" name="clubId" value="<%= clubs[i].idTeam %>">
                 <input class="submit" type="submit" name="clubId" value="FOLLOW">

@@ -1,8 +1,31 @@
-<% for( let i = 0; i < leagueLists.length; i++ ) { %>
-    <div class="leagueListForLoop">
-        <h2 id><%= leagueLists[i].strLeague  %></h2>
-        <h5>Division: <%= leagueLists[i].strDivision  %></h5>
-        <h5>Current Season: <%= leagueLists[i].strCurrentSeason %></h5>
-        <h5>Gender: <%= leagueLists[i].strGender %></h5></br>
-        <img id="leagueBanner" src="<%=leagueLists[i].strBanner %>" alt="<%=leagueLists[i].strBadge %>" onerror="this.onerror=null; this.src='<%= leagueLists[i].strBadge%>';" />
-<% } %> 
+        
+
+
+---> current user's clubid from clubs TABLE 
+
+        const findUserId = await db.user.findOne({
+            where: {
+                id: res.locals.user.dataValues.id
+            }
+        })
+        const findUserFromJoinTable = await db.users_clubs.findAll({
+            where: {
+                userId: findUserId.dataValues.id
+            }
+        })
+
+        const storeClubIds = []
+        for (let i = 0; i < findUserFromJoinTable.length; i++) {
+            const temp = findUserFromJoinTable[i].dataValues.clubId
+            storeClubIds.push(temp)
+        }
+        console.log(storeClubIds);
+        // console.log(storeClubIds);
+        
+        for (let i = 0; i < storeClubIds.length; i++) {
+            const findClubIds = await db.club.findOne({
+                where: {
+                    id: storeClubIds[i]
+                }
+            })
+        }

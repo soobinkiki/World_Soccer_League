@@ -21,7 +21,42 @@ router.post('/league/:leagueId', async (req, res) => {
                 id: res.locals.user.dataValues.id
             }
         })
+
+        /*=-----------*/
+        // const findUserId = await db.user.findOne({
+        //     where: {
+        //         id: res.locals.user.dataValues.id
+        //     }
+        // })
+        // const findUserFromJoinTable = await db.users_clubs.findAll({
+        //     where: {
+        //         userId: findUserId.dataValues.id
+        //     }
+        // })
+        // const storeClubIds = []
+        // for (let i = 0; i < findUserFromJoinTable.length; i++) {
+        //     const temp = findUserFromJoinTable[i].dataValues.clubId
+        //     storeClubIds.push(temp)
+        // }        
+
+        // const finalClubIds = []
+        // for (let i = 0; i < storeClubIds.length; i++) {
+        //     const findClubIds = await db.club.findOne({
+        //         where: {
+        //             id: storeClubIds[i]
+        //         }
+        //     })
+        //     finalClubIds.push(findClubIds)
+        //     const clubDetailURL = `https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${finalClubIds}`
+        //     const response = await axios.get(clubDetailURL)
+        //     const temp = response.data
+        //     const clubDetail = temp.teams[0].strTeam
+        //     console.log(clubDetail);
+        // }
+
         user.addLeague(oneLeague)
+
+        // res.render('searchcountry/league', { finalClubIds: finalClubIds })
         alert("NOW FOLLOWING")    // Think of the way to change the text of the submit button
     } catch (err) {
         console.log(err);

@@ -1,7 +1,6 @@
 const router = require('express').Router()
-// const db = require('../models')
+const db = require('../models')
 const axios = require('axios')
-
 
 router.get('/', (req, res) => {
     res.render('searchcountry/search')
@@ -16,11 +15,7 @@ router.get('/league', async (req, res) => {
         const leagueInfoURL = `https://www.thesportsdb.com/api/v1/json/1/search_all_leagues.php?c=${req.query.typedCountryName}&s=Soccer`
         const leagueResponse = await axios.request(leagueInfoURL)
         const leagueLists = leagueResponse.data
-        
-        // const findUserId =
 
-        // const user = res.locals.user
-        console.log(user);
         res.render('searchcountry/league', { leagueLists: leagueLists.countrys })
     } catch (err) {
         console.log(err);

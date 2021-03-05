@@ -6,6 +6,50 @@ body {
     position: relative;
 }
 
+.headerContainer {
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin:0;
+    padding: 0;
+    width: 100%;
+    height: 120px;
+}
+
+#headerText {
+    position: absolute;
+    margin-left: 50px;
+    font-size: 3em;
+    font-family: fantasy;
+}
+
+
+.navContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    margin-top: 70px;
+}
+
+.navHeader {
+    font-size: 22px;
+    text-decoration: overline;
+}
+
+#navFollow {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#navLogout {
+    margin-right: 50px;
+}
+
+.SignUpInputSpace {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+/*---------------------------------*/
+
 .main-index {
     background-color: white;
     color: black;
@@ -19,49 +63,77 @@ body {
     border-radius: 30px;
     border: 2px solid rgb(80, 80, 59)
 }
-/*---------------------------------*/
 
-.headerContainer {
-    background-color: rgb(0, 0, 0);
-    width: 100%;
-    height: 120px;    
-    position: relative;
+.mainpageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
-#headerText {
-    position: absolute;
-    margin-left: 50px;
-    font-size: 3em;
-    font-family: fantasy;
-    color: black;
+.mainpage-left {
+    border: 1px solid black;
+    background-color: white;
+    width: 970px;
+    height: 600px;
+    margin-right: 75px;
+    margin-top: 100px;
+    box-shadow: 5px 5px 20px rgba(0,0,0,1.5);
+    border: none;
 }
 
-.SignUpInputSpace {
-    margin-top: 15px;
-    margin-bottom: 15px;
+#mainpage-left-Text-Big, #mainpage-left-Text-Small {
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
-nav {
-    background-color: rgb(255, 255, 255);
-    text-align: right;
-    padding: 15px;
-    height: 80px;
+#mainpage-left-Text-Big {
+    font-size: 55px;
+    margin-top: 60px;
+    margin-left: 40px;
+}
+#mainpage-left-Text-Small {
+    font-size: 23px;
+    margin-top: 60px;
+    margin-left: 40px;
 }
 
-.navHeader {
-    position: relative;
-}
-
-
-#navSearch, #navLogout, #navHome {
-    padding: 15px;
+.mainpage-right {
+    border: 1px solid black;
+    background-color: white;
+    margin-top: 300px;
+    margin-left: 75px;
+    width: 970px;
+    height: 600px;
+    box-shadow: 5px 5px 20px rgba(0,0,0,1.5);
+    border: none;
 }
 
 .loginInputArea {
     padding: 6px;
-    width: 200px;
-    text-align: center;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    margin-left: 40px;
+    margin-top: 4px;
 }
+
+#mainpageLoginText {
+    margin-left: 40px;
+}
+
+#loginInputText {
+    margin-left: -205px;
+}
+
+#login-Text-Big {
+    margin-top: 20px;
+    font-size: 55px;
+}
+
+
+
+
 
 #loginPasswordText {
     margin-bottom: 15px;
@@ -99,9 +171,21 @@ a {
 
 .submit {
     margin-top: 20px;
-    width: 80px;
+    margin-left: 140px;
+    width: 110px;
+    height: 25px;
 }
 .submit:hover {
+    transform: scale(1.1);
+}
+
+#loginSubmit {
+    margin-top: 20px;
+    margin-left: 47px;
+    width: 110px;
+    height: 25px;
+}
+#loginSubmit:hover {
     transform: scale(1.1);
 }
 

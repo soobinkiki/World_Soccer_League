@@ -1,14 +1,17 @@
 <div class="main-index">
-    <h1>Log in to Your Account</h1></br>
-    <form action="/login" method="POST">
-        <div><label class="loginInput" for="username"><b>Username</b></label></div>
-        <div><input class="loginInputArea" id="loginPasswordText" type="text" name="username"></div>
-        
-        <div><label class="loginInput" for="password"><b>Password</b></label></div>
-        <div><input class="loginInputArea" type="password" name="password"></div>
-        
-        <div><input class="submit" type="submit" value="Sign in"></div>
-    </form>
+    <h1 id="login-Text-Big">Log in to Your Account</h1></br>
 
-    </br><h2>Need an account? <a href="/">Sign up</a></h2>
+    <div class="loginInputContainer">
+        <form action="/login" method="POST">
+            <div><label id="loginInputText" for="username"><b>Username</b></label></div>
+            <div><input class="loginInputArea" id="loginPasswordText" type="text" name="username" placeholder="Enter Username"></div>
+            
+            <div><label id="loginInputText" for="password"><b>Password</b></label></div>
+            <div><input class="loginInputArea" type="password" name="password" placeholder="Enter Password"></div>
+            
+            <div><input id="loginSubmit" type="submit" value="Sign in"></div>
+        </form>
+    </div>
+
+    <h2>Need an account? <a href="/">Sign up</a></h2>
 </div>

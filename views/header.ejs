@@ -1,22 +1,23 @@
 <div class="headerContainer">
-    <% if (user) {%>
-        <h1 id="headerText"><a href="/country">World Soccer League</a></h1>
-    <% } else { %> 
-        <h1 id="headerText"><a href="/">World Soccer League</a></h1>
-    <% } %> 
+    <div>
+        <% if (user) {%>
+            <h1 id="headerText"><a href="/country">World Soccer League</a></h1>
+        <% } else { %> 
+            <h1 id="headerText"><a href="/">World Soccer League</a></h1>
+        <% } %> 
 
-    <% if (user) { %>
-        <nav>
-            <a class="navHeader" id="navSearch" href="/country">SEARCH</a>
-            <a class="navHeader" id="navFollow" href="/follow">FOLLOWING</a>    
-            <a class="navHeader" id="navLogout" href="/users/logout">LOGOUT</a>
-        </nav>
-        <% } else { %>
-        <nav>
-            <a class="navHeader" id="navHome" href="/">HOME</a>
-        </nav>
-    <% } %> 
+        <% if (user) { %>
+    </div>
+    <div>
+            <nav class="navContainer">
+                <a class="navHeader" id="navSearch" href="/country">SEARCH</a>
+                <a class="navHeader" id="navFollow" href="/follow">FOLLOWING</a>    
+                <a class="navHeader" id="navLogout" href="/users/logout">LOGOUT</a>
+            </nav>
+            <% } else { %>
+            <!-- <nav>
+                <a class="navHeader" id="navHome" href="/">HOME</a>
+            </nav> -->
+        <% } %> 
+    </div>
 </div>
-
-
-
