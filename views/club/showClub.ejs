@@ -1,18 +1,33 @@
 <h1 id="clubHeaderText">Participating Clubs</h1></br>
-<h4 id="clubHeaderText">Selected League: <%= clubs[0].strLeague  %> </h4>
+<h4 id="clubHeaderText"><%= clubs[0].strLeague  %> </h4></br>
+<h4 id="clubHeaderText">Last 15 matches</h4>
+
+<div class="lastMatches">
+    <% for( let i = 0; i < matches.length; i++ ) { %>
+        <div>
+            <h4 id="matchClubClass"><%= matches[i].strHomeTeam %></h4> 
+            <% if (matches[i].intHomeScore === null) { %>
+                <h4 id="matchScore">-</h4>
+            <% } else { %> 
+                <h4 id="matchScore"><%= matches[i].intHomeScore %></h4>
+                <h4 id="matchScore"><%= matches[i].intAwayScore %></h4>
+            <% } %> 
+            <h4 id="matchClub"><%= matches[i].strAwayTeam %></h4>
+        </div>
+    <% } %>
+</div>
 
 <div class="clubListForLoopContainer">
     <% for( let i = 0; i < clubs.length; i++ ) { %>
         <div class="clubListForLoop">
             <h1><%= clubs[i].strTeam %> </h1>
             <h5><%= clubs[i].strAlternate %> </h5>
-            if 
             <form action="/follow/club/<%= clubs[i].idTeam %>" method="POST">
                 <input type="hidden" name="clubId" value="<%= clubs[i].idTeam %>">
-                <input class="submit" type="submit" name="clubId" value="FOLLOW">
+                <input class="clubFollow" type="submit" name="clubId" value="FOLLOW">
             </form></br></br></br>
             <img id="clubBanner" src="<%= clubs[i].strTeamBadge %>" alt="<%= clubs[i].strTeam %>">
-            <h4>Main Stadium: <%= clubs[i].strStadium %> </h4>
+            <h4 id="mainStadiumText">Main Stadium: <%= clubs[i].strStadium %> </h4>
         </div>
     <% } %>
 </div>

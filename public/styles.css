@@ -54,7 +54,7 @@ body {
     background-color: white;
     color: black;
     padding: 50px;
-    width: 77%;
+    width: 50%;
     height: 430px;
     margin: auto;
     margin-top: 150px;
@@ -109,6 +109,23 @@ body {
     border: none;
 }
 
+.countryInputArea {
+    width: 300px;
+    height: 25px;
+    border-radius: 10px;
+}
+
+#countrySubmit {
+    width: 110px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+#countrySubmit:hover {
+    transform: scale(1.1);
+}
+
 .loginInputArea {
     padding: 6px;
     width: 300px;
@@ -131,10 +148,6 @@ body {
     font-size: 55px;
 }
 
-
-
-
-
 #loginPasswordText {
     margin-bottom: 15px;
 }
@@ -144,23 +157,6 @@ body {
     text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*--------DO NOT TOUCH----------------*/
 a {
     text-decoration: none;
 }
@@ -174,6 +170,7 @@ a {
     margin-left: 140px;
     width: 110px;
     height: 25px;
+    text-align: center;
 }
 .submit:hover {
     transform: scale(1.1);
@@ -189,6 +186,10 @@ a {
     transform: scale(1.1);
 }
 
+#leagueName {
+    font-size: 30px;
+}
+
 #leagueBanner, #clubBanner {
     max-width: 220px;
     max-height: 220px;
@@ -202,22 +203,48 @@ a {
 .leagueListForLoopContainer {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 530px 530px 530px 530px 530px  
-                        530px 530px 530px 530px 530px;
+    grid-template-rows: 540px 540px 540px 540px 540px  
+                        540px 540px 540px 540px 540px;
     text-align: center;
 }
 .clubListForLoopContainer {
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 530px 530px 530px 530px 530px  
-                        530px 530px 530px 530px 530px;
+    grid-template-rows: 540px 540px 540px 540px 540px  
+                        540px 540px 540px 540px 540px;
+    text-align: center;
+}
+
+.lastMatches {
+    display: grid;
+    grid-template-columns: 6.5% 6.5% 6.5% 6.5% 6.5% 
+                           6.5% 6.5% 6.5% 6.5% 6.5% 
+                           6.5% 6.5% 6.5% 6.5% 6.5%;
+    grid-template-rows: 50px;
+    width: 95%;
+    height: 120px;
+    margin: auto;
+    margin-top: 10px;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.599);
+    border: 1px solid blanchedalmond;
+    margin-bottom: 30px;
+}
+
+#matchScore, #matchClub {
+    margin-top: 3px;
+    text-align: center;
+}
+
+#matchClubClass {
+    margin-top: 15px;
     text-align: center;
 }
 
 .followinglinkContainer {
     display: flex;
     justify-content: center;
-    margin-top: 20%;
+    margin-top: 18%;
 }
 
 .followingLeague, .followingClub {
@@ -242,15 +269,44 @@ a {
     align-items: center;
 }
 #followId {
-    margin-right: 4px;    
+    margin-right: 4px;
+    color: white;    
+    border: none;
+    background: rgb(43, 42, 42);
+    width: 70px;
+    height: 25px;
 }
 #clubId {
     margin-left: 4px;    
+    color: white;    
+    border: none;
+    background: rgb(43, 42, 42);
+    width: 90px;
+    height: 25px;
+}
+#followId:hover, #clubId:hover {
+    transform: scale(1.1);
 }
 
 h4 {
     margin: 0;
     padding: 0;
+}
+
+#mainStadiumText {
+    margin-top: 10px;
+}
+.clubFollow {
+    width: 110px;
+    height: 25px;
+    text-align: center;
+    color: white;    
+    border: none;
+    background: rgb(43, 42, 42);
+}
+
+.clubFollow:hover {
+    transform: scale(1.1);
 }
 
 #countryLetter {

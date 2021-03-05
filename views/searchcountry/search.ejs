@@ -1,15 +1,12 @@
 <div class="main-index">
-    <h1>Please type the Country</h1>
-    <h3>*** WAIT!! country name's are case sensitive. Please click 
-        <a href="/country/lists">HERE</a> to see the lists of countries ***</h1></br>
-
-
-
+    <h1 id="login-Text-Big">Please enter the country</h1>
+    <h2>*** WAIT *** </h2>
+    <h3>Country name's are case sensitive. Please click
+        <a href="/country/lists">HERE</a> to see the lists of countries</h3></br>
     <form action="/country/league" method="GET">
-        <label for="typedCountryName"></label>
-        <input type="text" name="typedCountryName">
-
-        <input type="submit" value="Search">
+        <input class="countryInputArea" type="text" name="typedCountryName">
+        <input id="countrySubmit" type="submit" value="Search">
     </form>
+
 </div>
 

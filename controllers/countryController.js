@@ -26,10 +26,15 @@ router.get('/league', async (req, res) => {
 router.get('/club', async (req, res) => {
     try {
         const clubURL = `https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=${req.query.leagueId}` 
-        const response = await axios.get(clubURL)
-        const clubs = response.data
+        const clubResponse = await axios.get(clubURL)
+        const clubs = clubResponse.data
 
-        res.render('club/showClub', { clubs: clubs.teams })
+
+        const lastMatchURL = `https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=${req.query.leagueId}` 
+        const matchResponse = await axios.get(lastMatchURL)
+        const matches = matchResponse.data
+        // console.log(matches.events);
+        res.render('club/showClub', { clubs: clubs.teams, matches: matches.events })
     } catch (err) {
         console.log(err);
     }})
