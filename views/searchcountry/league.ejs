@@ -1,29 +1,27 @@
-<div class="leaguesLists">
+<div class="leagueLayout">
     <div id="countryNameText">
         <h2><%= leagueLists[0].strCountry  %></h1>
     </div>
+</div>
 
-    <div class="leagueLayout">
-        <% for( let i = 0; i < leagueLists.length; i++ ) { %>
-            <div class="leagueListForLoop">
-                <!-- <div class="temp"> -->
-                    <h2><%= leagueLists[i].strLeague %></h2>
-                    <h5>Division: <%= leagueLists[i].strDivision  %></h5>
-                    <h5>Current Season: <%= leagueLists[i].strCurrentSeason %></h5>
-                    <h5>Gender: <%= leagueLists[i].strGender %></h5></br>
-                    <img id="leagueBanner" src="<%=leagueLists[i].strBanner %>" alt="<%=leagueLists[i].strBadge %>" onerror="this.onerror=null; this.src='<%= leagueLists[i].strBadge%>';" />
-                    <div class="followClubsTag">
-                        <form action="/follow/league/<%= leagueLists[i].idLeague%>" method="POST">
-                            <input type="hidden" name="leagueId" value= "<%=leagueLists[i].idLeague%>">
-                            <input id="followId" type="submit" name="leagueId" value="FOLLOW">
-                        </form>
-                        <form action="/country/club" method="GET">
-                            <input type="hidden" name="leagueId" value="<%=leagueLists[i].idLeague%>">
-                            <input id="clubId" type="submit" value="CLUB LISTS">
-                        </form></br></br></br>
-                    </div>
-                <!-- </div> -->
-            </div>
-        <% } %> 
-    </div>
+<div class="leagueListForLoopContainer">
+    <% for( let i = 0; i < leagueLists.length; i++ ) { %>
+        <div class="leagueListForLoop">
+                <h2><%= leagueLists[i].strLeague %></h2>
+                <div class="followClubsTag">
+                    <form action="/follow/league/<%= leagueLists[i].idLeague%>" method="POST">
+                        <input type="hidden" name="leagueId" value= "<%=leagueLists[i].idLeague%>">
+                        <input id="followId" type="submit" name="leagueId" value="FOLLOW">
+                    </form>
+                    <form action="/country/club" method="GET">
+                        <input type="hidden" name="leagueId" value="<%=leagueLists[i].idLeague%>">
+                        <input id="clubId" type="submit" value="CLUB LISTS">
+                    </form></br></br></br>
+                </div>
+                <h4>Division: <%= leagueLists[i].strDivision  %></h4>
+                <h4>Current Season: <%= leagueLists[i].strCurrentSeason %></h4>
+                <h4>Gender: <%= leagueLists[i].strGender %></h4></br>
+                <img id="leagueBanner" src="<%=leagueLists[i].strBanner %>" alt="<%=leagueLists[i].strBadge %>" onerror="this.onerror=null; this.src='<%= leagueLists[i].strBadge%>';" />
+        </div>
+    <% } %> 
 </div>

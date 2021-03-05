@@ -1,16 +1,17 @@
 <h1 id="clubHeaderText">Participating Clubs</h1></br>
+<h4 id="clubHeaderText">Selected League: <%= clubs[0].strLeague  %> </h4>
 
-<% for( let i = 0; i < clubs.length; i++ ) { %>
-    <div class="clubLayout">
-        <h1><%= clubs[i].strTeam %> </h1>
-        <img id="clubBanner" src="<%= clubs[i].strTeamBadge %>" alt="<%= clubs[i].strTeam %>">
-        <h4>Main Stadium: <%= clubs[i].strStadium %> </h4>
-        <h4><%= clubs[i].strStadiumDescription %> </h4>
-
-        <form action="/follow/club/<%= clubs[i].idTeam %>" method="POST">
-            <input type="hidden" name="clubId" value="<%= clubs[i].idTeam %>">
-            <input type="submit" name="clubId" value="FOLLOW">
-        </form></br></br></br>
-
-    </div>
-<% } %>
+<div class="clubListForLoopContainer">
+    <% for( let i = 0; i < clubs.length; i++ ) { %>
+        <div class="clubListForLoop">
+            <h1><%= clubs[i].strTeam %> </h1>
+            <h5><%= clubs[i].strAlternate %> </h5>
+            <form action="/follow/club/<%= clubs[i].idTeam %>" method="POST">
+                <input type="hidden" name="clubId" value="<%= clubs[i].idTeam %>">
+                <input class="submit" type="submit" name="clubId" value="FOLLOW">
+            </form></br></br></br>
+            <img id="clubBanner" src="<%= clubs[i].strTeamBadge %>" alt="<%= clubs[i].strTeam %>">
+            <h4>Main Stadium: <%= clubs[i].strStadium %> </h4>
+        </div>
+    <% } %>
+</div>

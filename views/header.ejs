@@ -1,5 +1,10 @@
 <div class="headerContainer">
-    <h1 id="headerText"><a href="/">World Soccer League</a></h1>
+    <% if (user) {%>
+        <h1 id="headerText"><a href="/country">World Soccer League</a></h1>
+    <% } else { %> 
+        <h1 id="headerText"><a href="/">World Soccer League</a></h1>
+    <% } %> 
+
     <% if (user) { %>
         <nav>
             <a class="navHeader" id="navSearch" href="/country">SEARCH</a>

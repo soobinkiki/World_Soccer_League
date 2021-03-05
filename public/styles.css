@@ -1,7 +1,6 @@
+/*--------DO NOT TOUCH----------*/
 body {
-    /* background-image: url('https://wallpaperaccess.com/full/2514327.jpg');
-    background-size: cover;
-    background-repeat: no-repeat; */
+    background: linear-gradient(90deg, #a9acc9, #bbd4dc, #adcec1);
     margin: 0;
     padding: 0;
     position: relative;
@@ -20,9 +19,10 @@ body {
     border-radius: 30px;
     border: 2px solid rgb(80, 80, 59)
 }
+/*---------------------------------*/
 
 .headerContainer {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
     width: 100%;
     height: 120px;    
     position: relative;
@@ -35,10 +35,6 @@ body {
     font-family: fantasy;
     color: black;
 }
-
-/* #headerText:visited {
-    color: black;
-} */
 
 .SignUpInputSpace {
     margin-top: 15px;
@@ -56,30 +52,15 @@ nav {
     position: relative;
 }
 
-a {
-    text-decoration: none;
-}
-
-#errorMsg {
-    color: red;
-}
 
 #navSearch, #navLogout, #navHome {
     padding: 15px;
 }
-/* #navHome {
-    padding: 15px;
-} */
 
 .loginInputArea {
     padding: 6px;
     width: 200px;
     text-align: center;
-}
-
-.submit {
-    margin-top: 20px;
-    width: 80px;
 }
 
 #loginPasswordText {
@@ -91,22 +72,80 @@ a {
     text-align: center;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------DO NOT TOUCH----------------*/
+a {
+    text-decoration: none;
+}
+
+#errorMsg {
+    color: red;
+}
+
+.submit {
+    margin-top: 20px;
+    width: 80px;
+}
+.submit:hover {
+    transform: scale(1.1);
+}
+
 #leagueBanner, #clubBanner {
     max-width: 220px;
     max-height: 220px;
 }
 
-.leaguesLists {
-    border: 1px solid black;
+.leagueListForLoop, .clubListForLoop {
+    margin: 20px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.8)
 }
 
-.leagueListForLoop {
-    margin-top: 50px;
-    margin-bottom: 50px;
+.leagueListForLoopContainer {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 530px 530px 530px 530px 530px  
+                        530px 530px 530px 530px 530px;
+    text-align: center;
 }
-/* .temp {    // from league.ejs
+.clubListForLoopContainer {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 530px 530px 530px 530px 530px  
+                        530px 530px 530px 530px 530px;
+    text-align: center;
+}
+
+.followinglinkContainer {
     display: flex;
-} */ 
+    justify-content: center;
+    margin-top: 20%;
+}
+
+.followingLeague, .followingClub {
+    width: 500px;
+    height: 200px;
+    font-size: 4em;
+    text-align: center;
+}
+.followingLeague:hover, .followingClub:hover {
+    color: red;
+    transform: scale(1.3);    
+}
 
 #countryNameText {
     text-align: center;
@@ -117,7 +156,6 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 #followId {
     margin-right: 4px;    
@@ -126,13 +164,23 @@ a {
     margin-left: 4px;    
 }
 
-h5 {
+h4 {
     margin: 0;
     padding: 0;
 }
 
 #countryLetter {
     font-size: 20px;
-    color: rgb(205, 116, 103);
+    color: rgb(255, 255, 255);
     margin-left: 20px;
 }
+
+input {
+    background-color: rgba(255, 255, 255, 0.633);
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+input:hover {
+    cursor:pointer;
+}
+/*-------------------------*/

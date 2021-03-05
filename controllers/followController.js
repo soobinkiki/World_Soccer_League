@@ -113,7 +113,6 @@ router.get('/list/club', async (req, res) => {
             tempClubs.push(responseClubs)
         }
         const clubs = tempClubs
-        // console.log(clubs[1].teams[0]);
 
         res.render('follow/followingClub', { clubs: clubs})
     } catch (err) {

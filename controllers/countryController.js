@@ -17,6 +17,10 @@ router.get('/league', async (req, res) => {
         const leagueResponse = await axios.request(leagueInfoURL)
         const leagueLists = leagueResponse.data
         
+        // const findUserId =
+
+        // const user = res.locals.user
+        console.log(user);
         res.render('searchcountry/league', { leagueLists: leagueLists.countrys })
     } catch (err) {
         console.log(err);
