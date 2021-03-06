@@ -200,6 +200,12 @@ body {
     margin-left: 40px;
 }
 
+#editUsernameArea {
+    font-size: 30px;
+    width: 150px;
+    border: none;
+}
+
 #loginInputText {
     margin-left: -205px;
 }

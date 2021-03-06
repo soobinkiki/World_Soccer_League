@@ -1,14 +1,18 @@
+<!-- follow/followingLeague previous codes are in the NOTE -->
+
 <div class="followingHeaderText">
     <h1>Your Following Leagues</h1>
 </div>
 <div class="leagueListForLoopContainer">
-    <% for( let i = 0; i < leagueLists.length; i++ ) { %>
+    <% for( let i = 0; i < storedLeagueNames.length; i++ ) { %>
         <div class="leagueListForLoop">
-            <h2 id><%= leagueLists[i].leagues[0].strLeague  %></h2>
-            <h4>Division: <%= leagueLists[i].leagues[0].strDivision  %></h4>
-            <h4>Current Season: <%= leagueLists[i].leagues[0].strCurrentSeason %></h4>
-            <h4>Gender: <%= leagueLists[i].leagues[0].strGender %></h4></br>
-            <img id="leagueBanner" src="<%=leagueLists[i].leagues[0].strBanner %>" alt="<%=leagueLists[i].leagues[0].strBadge %>" onerror="this.onerror=null; this.src='<%= leagueLists[i].leagues[0].strBadge%>';" />
+            <h2 id="leagueName"><%= storedLeagueNames[i].leaguename %> </h2>
+            <h2 >Followed on <%= storedLeagueNames[i].createdAt %> </h2>
+            
+            <form action="/follow/league/delete/<%= storedLeagueNames[i].leaguename %>" method="DELETE/resource?_method=DELETE">
+                <input type="hidden" name="deleteLeague" value="<%= storedLeagueNames[i].leaguename %>">
+                <input type="submit" name="deleteLeague" value="UNFOLLOW">
+            </form>
         </div>
     <% } %>
 </div>

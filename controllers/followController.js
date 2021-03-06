@@ -22,42 +22,9 @@ router.post('/league/:leagueId', async (req, res) => {
             }
         })
 
-        /*=-----------*/
-        // const findUserId = await db.user.findOne({
-        //     where: {
-        //         id: res.locals.user.dataValues.id
-        //     }
-        // })
-        // const findUserFromJoinTable = await db.users_clubs.findAll({  ------ db.user.findByPk
-        //     where: {
-        //         userId: findUserId.dataValues.id
-        //     }
-        // })
-        // const storeClubIds = []
-        // for (let i = 0; i < findUserFromJoinTable.length; i++) {
-        //     const temp = findUserFromJoinTable[i].dataValues.clubId
-        //     storeClubIds.push(temp)
-        // }        
-
-        // const finalClubIds = []
-        // for (let i = 0; i < storeClubIds.length; i++) {
-        //     const findClubIds = await db.club.findOne({
-        //         where: {
-        //             id: storeClubIds[i]
-        //         }
-        //     })
-        //     finalClubIds.push(findClubIds)
-        //     const clubDetailURL = `https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${finalClubIds}`
-        //     const response = await axios.get(clubDetailURL)
-        //     const temp = response.data
-        //     const clubDetail = temp.teams[0].strTeam
-        //     console.log(clubDetail);
-        // }
-
         user.addLeague(oneLeague)
 
-        // res.render('searchcountry/league', { finalClubIds: finalClubIds })
-        alert("NOW FOLLOWING")    // Think of the way to change the text of the submit button
+        alert("NOW FOLLOWING")
     } catch (err) {
         console.log(err);
     }
@@ -70,28 +37,19 @@ router.get('/', (req, res) => {
 router.get('/list/league', async (req, res) => {
     try {
         const userLeagueJoinTable = await db.users_leagues.findAll({
-            where: {
-                userId: res.locals.user.dataValues.id
-            }
+                id: res.locals.user.id
         })
-        const storeLeagueId = []
-        for (let i=0; i < userLeagueJoinTable.length; i++) {
-            const findLeaugeId = await db.league.findOne({
+
+        const storedLeagueNames = []
+        for (let i = 0; i < userLeagueJoinTable.length; i++) {
+            const leagueName = await db.league.findAll({
                 where: {
-                    id: userLeagueJoinTable[i].leagueId
-                }
-            })
-            const leagueId = findLeaugeId.dataValues.leagueid;
-            storeLeagueId.push(leagueId)
+                    id: userLeagueJoinTable[i].dataValues.leagueId
+                }, 
+            })            
+            storedLeagueNames.push(leagueName[0].dataValues)
         }
-        const leagueLists = []
-        for (let i = 0; i < storeLeagueId.length; i++) {
-            const clubURL = `https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${storeLeagueId[i]}` 
-            const response = await axios.get(clubURL)
-            const clubs = response.data
-            leagueLists.push(clubs)
-        }
-        res.render('follow/followingLeague', { leagueLists: leagueLists})
+        res.render('follow/followingLeague', { storedLeagueNames: storedLeagueNames })
     } catch (err) {
         console.log(err);
     }
@@ -154,5 +112,24 @@ router.get('/list/club', async (req, res) => {
         console.log(err);
     }
 })
+
+
+// follow/folowingLeague delete button ----
+
+// router.delete('/league/delete/:leagueId', async (req, res) => {
+//     console.log("hello");
+//     try {
+//         const currentUser = await db.users_leagues.findOne({
+//             where: {
+//                 userId: res.locals.user.dataValues.id
+//             }, 
+//         })
+//         const removeDataBase = await 
+//         console.log("hello");
+//         console.log(currentUser);
+//     } catch (err) {
+//         console.log(err);
+//     }
+// })
 
 module.exports = router

@@ -49,4 +49,17 @@ router.get('/profile', async (req, res) => {
     }
 })
 
+// router.put('/edit', async (req, res) => {
+//     try {
+//         const findUser = await db.user.findOne({
+//             where: {
+//                 id: res.locals.res.locals.user.dataValues.id
+//             }
+//         })
+        
+//     } catch (err) {
+//         console.log(err);
+//     }
+// })
+
 module.exports = router;
