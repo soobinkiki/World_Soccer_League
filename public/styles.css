@@ -52,6 +52,8 @@ body {
     font-family: fantasy;
 }
 
+
+
 .navContainer {
     position: absolute;
     width: 100%;
@@ -171,9 +173,13 @@ body {
 }
 
 .countryInputArea {
-    width: 300px;
-    height: 25px;
+    width: 250px;
+    height: 40px;
     border-radius: 10px;
+}
+.countryInputArea:hover {
+    background: rgb(43, 41, 41);
+    color: white;
 }
 
 #countrySubmit {

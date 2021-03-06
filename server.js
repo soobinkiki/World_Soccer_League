@@ -9,7 +9,7 @@ var methodOverride = require('method-override')
 
 const app = express()
 const rowdyResult = rowdy.begin(app)
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 const cryptoJS = require('crypto-js')
 const AES = require('crypto-js')
 

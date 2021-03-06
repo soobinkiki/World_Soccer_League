@@ -21,9 +21,7 @@ router.post('/league/:leagueId', async (req, res) => {
                 id: res.locals.user.dataValues.id
             }
         })
-
         user.addLeague(oneLeague)
-
         alert("NOW FOLLOWING")
     } catch (err) {
         console.log(err);
@@ -37,19 +35,20 @@ router.get('/', (req, res) => {
 router.get('/list/league', async (req, res) => {
     try {
         const userLeagueJoinTable = await db.users_leagues.findAll({
-                id: res.locals.user.id
+            where: {
+                userId: res.locals.user.dataValues.id
+            }
         })
-
-        const storedLeagueNames = []
+        const storedLeaugeInfos = []
         for (let i = 0; i < userLeagueJoinTable.length; i++) {
             const leagueName = await db.league.findAll({
                 where: {
                     id: userLeagueJoinTable[i].dataValues.leagueId
                 }, 
             })            
-            storedLeagueNames.push(leagueName[0].dataValues)
+            storedLeaugeInfos.push(leagueName[0].dataValues)
         }
-        res.render('follow/followingLeague', { storedLeagueNames: storedLeagueNames })
+        res.render('follow/followingLeague', { storedLeaugeInfos: storedLeaugeInfos })
     } catch (err) {
         console.log(err);
     }
@@ -82,54 +81,45 @@ router.post('/club/:clubId', async (req, res) => {
 
 router.get('/list/club', async (req, res) => {
     try {
-        const usersClubsJoinTable = await db.users_clubs.findAll({
+        const userClubJoinTable = await db.users_clubs.findAll({
             where: {
                 userId: res.locals.user.dataValues.id
             }
         })
-        const storeClubId = []
-        for (let i = 0; i < usersClubsJoinTable.length; i++) {
-            const findClubId = await db.club.findOne({
+        const storedClubInfos = []
+        for (let i = 0; i < userClubJoinTable.length; i++) {
+            const clubName = await db.club.findAll({
                 where: {
-                    id: usersClubsJoinTable[i].clubId
-                }
+                    id: userClubJoinTable[i].dataValues.clubId
+                }, 
             })
-            const clubIdLists = findClubId.dataValues.clubid;
-            storeClubId.push(clubIdLists)
+            storedClubInfos.push(clubName[0].dataValues)
         }
-
-        const tempClubs = []
-        for (let i = 0; i < storeClubId.length; i++) {
-            const clubURL = `https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${storeClubId[i]}` 
-            const response = await axios.get(clubURL)
-            const responseClubs = response.data
-            tempClubs.push(responseClubs)
-        }
-        const clubs = tempClubs
-
-        res.render('follow/followingClub', { clubs: clubs})
+        res.render('follow/followingClub', { storedClubInfos: storedClubInfos })
+        console.log(err);
     } catch (err) {
         console.log(err);
     }
 })
 
 
-// follow/folowingLeague delete button ----
 
-// router.delete('/league/delete/:leagueId', async (req, res) => {
-//     console.log("hello");
-//     try {
-//         const currentUser = await db.users_leagues.findOne({
-//             where: {
-//                 userId: res.locals.user.dataValues.id
-//             }, 
-//         })
-//         const removeDataBase = await 
-//         console.log("hello");
-//         console.log(currentUser);
-//     } catch (err) {
-//         console.log(err);
-//     }
-// })
+
+router.delete('/league/:leagueId', async (req, res) => {
+    console.log("hello");
+    try {
+        const currentUser = await db.users_leagues.findOne({
+            where: {
+                userId: res.locals.user.dataValues.id
+            }, 
+        })
+        console.log(currentUser);
+        
+
+        
+    } catch (err) {
+        console.log(err);
+    }
+})
 
 module.exports = router

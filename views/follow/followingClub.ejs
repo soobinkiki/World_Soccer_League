@@ -1,10 +1,15 @@
 <h1 id="clubHeaderText">Your Following Clubs</h1></br>
 <div class="clubListForLoopContainer">
-    <% for( let i = 0; i < clubs.length; i++ ) { %>
+    <% for( let i = 0; i < storedClubInfos.length; i++ ) { %>
         <div class="clubListForLoop">
-            <h1><%= clubs[i].teams[0].strTeam %> </h1>
-            <img id="clubBanner" src="<%= clubs[i].teams[0].strTeamBadge %>" alt="<%= clubs[i].teams[0].strTeam %>">
-            <h4 id="mainStadiumText">Main Stadium: <%= clubs[i].teams[0].strStadium %> </h4>
+            <h2 id="leagueName"><%= storedClubInfos[i].clubname %> </h2>
+            <h2 >Followed on <%= storedClubInfos[i].createdAt %> </h2>
+            <form action="/follow/club/delete/<%= storedClubInfos[i].clubname %>" method="DELETE/resource?_method=DELETE">
+                <input type="hidden" name="deleteClub" value="<%= storedClubInfos[i].clubname %>">
+                <input type="submit" name="deleteClub" value="UNFOLLOW">
+            </form>
         </div>
     <% } %> 
 </div>
+
+

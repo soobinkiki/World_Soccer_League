@@ -4,13 +4,13 @@
     <h1>Your Following Leagues</h1>
 </div>
 <div class="leagueListForLoopContainer">
-    <% for( let i = 0; i < storedLeagueNames.length; i++ ) { %>
+    <% for( let i = 0; i < storedLeaugeInfos.length; i++ ) { %>
         <div class="leagueListForLoop">
-            <h2 id="leagueName"><%= storedLeagueNames[i].leaguename %> </h2>
-            <h2 >Followed on <%= storedLeagueNames[i].createdAt %> </h2>
-            
-            <form action="/follow/league/delete/<%= storedLeagueNames[i].leaguename %>" method="DELETE/resource?_method=DELETE">
-                <input type="hidden" name="deleteLeague" value="<%= storedLeagueNames[i].leaguename %>">
+            <h2 id="leagueName"><%= storedLeaugeInfos[i].leaguename %> </h2>
+            <h2 >Followed on <%= storedLeaugeInfos[i].createdAt %> </h2>
+
+            <form method="POST" action="/follow/league/resource?_method=DELETE">
+                <input type="hidden" name="deleteLeague" value="<%= storedLeaugeInfos[i].leagueid %>">
                 <input type="submit" name="deleteLeague" value="UNFOLLOW">
             </form>
         </div>

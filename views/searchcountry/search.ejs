@@ -1,10 +1,95 @@
 <div class="main-index">
-    <h1 id="login-Text-Big">Please enter the country</h1>
-    <h2>*** WAIT *** </h2>
-    <h3>Country name's are case sensitive. Please click
-        <a href="/country/lists">HERE</a> to see the lists of countries</h3></br>
+    <h1 id="login-Text-Big">Select the country</h1>
     <form action="/country/league" method="GET">
-        <input class="countryInputArea" type="text" name="typedCountryName">
+        <select class="countryInputArea" id="opt" name="typedCountryName">
+            <optgroup label="A">
+                <option name="typedCountryName">Andorra</option><option name="typedCountryName">Albania</option><option name="typedCountryName">Armenia</option>
+                <option name="typedCountryName">Argentina</option><option name="typedCountryName">Austria</option><option name="typedCountryName">Australia</option>
+                <option name="typedCountryName">Azerbaijan</option><option name="typedCountryName">Algeria</option> 
+            </optgroup>
+            <optgroup label="B">
+                <option name="typedCountryName">Belgium</option><option name="typedCountryName">Bulgaria</option><option name="typedCountryName">Bahrain</option>
+                <option name="typedCountryName">Bolivia</option><option name="typedCountryName">Brazil</option><option name="typedCountryName">Belarus</option>
+            </optgroup>
+            <optgroup label="C">
+                <option name="typedCountryName">Canada</option><option name="typedCountryName">Chile</option><option name="typedCountryName">China</option>
+                <option name="typedCountryName">Colombia</option><option name="typedCountryName">Costa Rica</option><option name="typedCountryName">Curaçao</option>
+                <option name="typedCountryName">Cyprus</option><option name="typedCountryName">Czech Republic</option><option name="typedCountryName">Croatia</option>
+                <option name="typedCountryName">Cambodia</option>
+            </optgroup>
+            <optgroup label="D">
+                <option name="typedCountryName">Denmark</option>
+            </optgroup>
+            <optgroup label="E">
+                <option name="typedCountryName">Ecuador</option><option name="typedCountryName">Estonia</option><option name="typedCountryName">Egypt</option>
+                <option name="typedCountryName">England</option><option name="typedCountryName">El Salvador Rica</option>
+            </optgroup>
+            <optgroup label="F">
+                <option name="typedCountryName">Finland</option><option name="typedCountryName">Faroe Islands</option><option name="typedCountryName">France</option>
+            </optgroup>
+            <optgroup label="G">
+                <option name="typedCountryName">Germany</option><option name="typedCountryName">Georgia</option><option name="typedCountryName">Greece</option>
+                <option name="typedCountryName">Guatemala</option>
+            </optgroup>
+            <optgroup label="H">
+                <option name="typedCountryName">Hong Kong</option><option name="typedCountryName">Honduras</option><option name="typedCountryName">Hungary</option>
+            </optgroup>
+            <optgroup label="I">
+                <option name="typedCountryName">Indonesia</option><option name="typedCountryName">Ireland</option><option name="typedCountryName">Israel</option>
+                <option name="typedCountryName">India</option><option name="typedCountryName">Iran</option><option name="typedCountryName">Iceland</option>
+                <option name="typedCountryName">Italy</option>
+            </optgroup>
+            <optgroup label="J">
+                <option name="typedCountryName">Japan</option>
+            </optgroup>
+            <optgroup label="K">
+                <option name="typedCountryName">Kuwait</option><option name="typedCountryName">Kazakhstan</option><option name="typedCountryName">Kenya</option>
+            </optgroup>
+            <optgroup label="L">
+                <option name="typedCountryName">Lithuania</option><option name="typedCountryName">Luxembourg</option><option name="typedCountryName">Latvia</option>
+            </optgroup>
+            <optgroup label="M">
+                <option name="typedCountryName">Morocco</option><option name="typedCountryName">Moldova</option><option name="typedCountryName">Montenegro</option>
+                <option name="typedCountryName">Malta</option><option name="typedCountryName">Mexico</option><option name="typedCountryName">Malaysia</option>
+            </optgroup>
+
+            <optgroup label="N">
+                <option name="typedCountryName">Northern Ireland</option><option name="typedCountryName">Nigeria</option><option name="typedCountryName">Nicaragua</option>
+                <option name="typedCountryName">Norway</option><option name="typedCountryName">New Zealand</option>
+            </optgroup>
+            <optgroup label="P">
+                <option name="typedCountryName">Panama</option><option name="typedCountryName">Peru</option><option name="typedCountryName">Poland</option>
+                <option name="typedCountryName">Portugal</option><option name="typedCountryName">Paraguay</option>
+            </optgroup>
+            <optgroup label="Q">
+                <option name="typedCountryName">Qatar</option>
+            </optgroup>
+
+            <optgroup label="R">
+                <option name="typedCountryName">Romania</option><option name="typedCountryName">Russian Federation</option>
+            </optgroup>
+            <optgroup label="S">
+                <option name="typedCountryName">Serbia</option><option name="typedCountryName">Scotland</option><option name="typedCountryName">Saudi Arabia</option>
+                <option name="typedCountryName">Sweden</option><option name="typedCountryName">Singapore</option><option name="typedCountryName">South Korea</option>
+                <option name="typedCountryName">Slovenia</option><option name="typedCountryName">Switzerland</option><option name="typedCountryName">Slovakia</option>
+                <option name="typedCountryName">Spain</option>
+            </optgroup>
+            <optgroup label="T">
+                <option name="typedCountryName">The Netherlands</option><option name="typedCountryName">Thailand</option><option name="typedCountryName">Tunisia</option>
+                <option name="typedCountryName">Turkey</option>
+            </optgroup>
+            <optgroup label="U">
+                <option name="typedCountryName">Ukraine</option><option name="typedCountryName">United States</option><option name="typedCountryName">United Arab Emirates</option>
+                <option name="typedCountryName">Uruguay</option><option name="typedCountryName">Uzbekistan</option><option name="typedCountryName">United Kingdom</option>
+            </optgroup>
+            <optgroup label="V">
+                <option name="typedCountryName">Venezuela</option><option name="typedCountryName">Vietnam</option>
+            </optgroup>
+        
+            <optgroup label="W">
+                <option name="typedCountryName">Wales</option>
+            </optgroup>
+        </select>
         <input id="countrySubmit" type="submit" value="Search">
     </form>
 </div>

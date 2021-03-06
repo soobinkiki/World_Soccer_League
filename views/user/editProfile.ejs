@@ -5,7 +5,7 @@
         <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=medium&timezone=America%2FLos_Angeles" width="100%" height="115" frameborder="0" seamless></iframe> 
     </div>
     <div class="userInfoTextContainer">
-        <h1 id="userInfoText">Logged in: <input id="editUsernameArea" type="text" placeholder="<%= currentUser.username %>"></h1></br>
+        <h1 id="userInfoText">Username: <input id="editUsernameArea" type="text" placeholder="<%= currentUser.username %>"></h1></br>
         <form action="/user/edit" method="PUT">
             <input type="hidden" name="editUsername">
             <input id="userEditSubmit" type="submit" name="editUsername" value="EDIT USERNAME">

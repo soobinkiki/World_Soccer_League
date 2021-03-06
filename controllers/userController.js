@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
         const hashedPassword = bcrypt.hashSync(req.body.password, 10)
 
         if (req.body.username === "" || req.body.email === "" || req.body.password === "" ) {
-            alert("Please enter the valid username, password and email rgergergerg")
+            alert("Please enter the valid username, password and email")
             return;
         }
 
