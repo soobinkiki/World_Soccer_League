@@ -55,6 +55,7 @@ router.put('/edit/', async (req, res) => {
         const changeUsername = await findUser.update({
             username: req.body.editUsername
         })
+        if (changeUsername) alert('Username changed')
         return
     } catch (err) {
         console.log(err);
