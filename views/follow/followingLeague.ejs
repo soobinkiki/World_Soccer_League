@@ -9,9 +9,9 @@
             <h2 id="leagueName"><%= storedLeaugeInfos[i].leaguename %> </h2>
             <h2 >Followed on <%= storedLeaugeInfos[i].createdAt %> </h2>
 
-            <form method="POST" action="/follow/league/resource?_method=DELETE">
-                <input type="hidden" name="deleteLeague" value="<%= storedLeaugeInfos[i].leagueid %>">
-                <input type="submit" name="deleteLeague" value="UNFOLLOW">
+            <form method="POST" action="/follow/league/<%= storedLeaugeInfos[i].leagueid %>/?_method=DELETE">
+                <input type="hidden" name="leagueIdNum" value="<%= storedLeaugeInfos[i].leagueid %>">
+                <input type="submit" value="UNFOLLOW">
             </form>
         </div>
     <% } %>

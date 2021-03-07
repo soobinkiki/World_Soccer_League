@@ -4,7 +4,7 @@ const rowdy = require('rowdy-logger')
 const axios = require('axios') // delete? maybe
 const morgan = require('morgan')
 const db = require('./models')
-var methodOverride = require('method-override')
+const methodOverride = require('method-override')
 
 
 const app = express()
@@ -39,7 +39,7 @@ app.use(async (req, res, next) => {
 app.get('/', (req, res) => {
     res.render('index')
 })
-
+ 
 app.use('/users', require('./controllers/userController'))
 app.use('/country', require('./controllers/countryController'))
 app.use('/login', require('./controllers/userLogInController'))

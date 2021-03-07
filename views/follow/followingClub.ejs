@@ -4,9 +4,9 @@
         <div class="clubListForLoop">
             <h2 id="leagueName"><%= storedClubInfos[i].clubname %> </h2>
             <h2 >Followed on <%= storedClubInfos[i].createdAt %> </h2>
-            <form action="/follow/club/delete/<%= storedClubInfos[i].clubname %>" method="DELETE/resource?_method=DELETE">
-                <input type="hidden" name="deleteClub" value="<%= storedClubInfos[i].clubname %>">
-                <input type="submit" name="deleteClub" value="UNFOLLOW">
+            <form action="/follow/club/<%= storedClubInfos[i].clubid %>/?_method=DELETE" method="POST">
+                <input type="hidden" name="clubIdNum" value="<%= storedClubInfos[i].clubid %>">
+                <input type="submit" value="UNFOLLOW">
             </form>
         </div>
     <% } %> 

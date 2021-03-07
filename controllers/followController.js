@@ -96,30 +96,53 @@ router.get('/list/club', async (req, res) => {
             storedClubInfos.push(clubName[0].dataValues)
         }
         res.render('follow/followingClub', { storedClubInfos: storedClubInfos })
-        console.log(err);
     } catch (err) {
         console.log(err);
     }
 })
-
-
-
 
 router.delete('/league/:leagueId', async (req, res) => {
-    console.log("hello");
     try {
-        const currentUser = await db.users_leagues.findOne({
+        const findLeague = await db.league.findOne({ raw:true,
             where: {
-                userId: res.locals.user.dataValues.id
-            }, 
+                leagueid: req.params.leagueId 
+            }
         })
-        console.log(currentUser);
-        
 
-        
+        const deleteLeague = await db.users_leagues.destroy({ raw:true,
+            where: {
+                userId: res.locals.user.dataValues.id,
+                leagueId: findLeague.id
+            }
+        })
+        res.redirect('/follow/list/league')       
     } catch (err) {
         console.log(err);
     }
 })
+
+router.delete('/club/:clubId', async (req, res) => {
+    console.log("🛳🛳🛳🛳🛳🛳🛳🛳heello3");
+    try {
+        console.log(req.params.clubIdNum);
+        const findClub = await db.club.findOne({ raw:true,
+            where: {
+                clubid: req.params.clubId 
+            }
+        })
+        
+        const deleteClub = await db.users_clubs.destroy({ raw:true,
+            where: {
+                userId: res.locals.user.dataValues.id,
+                clubId: findClub.id
+            }
+        })
+        res.redirect('/follow/list/club')       
+    } catch (err) {
+        console.log(err);
+    }
+})
+
+
 
 module.exports = router

@@ -52,7 +52,9 @@ body {
     font-family: fantasy;
 }
 
-
+#headerTextVisited {
+    color: black;
+}
 
 .navContainer {
     position: absolute;
@@ -65,6 +67,13 @@ body {
 .navHeader {
     font-size: 22px;
     text-decoration: overline;
+}
+
+.navHeader:visited {
+    color: black;
+}
+.navHeader:hover {
+    text-decoration: underline;
 }
 
 #navFollow {
@@ -149,6 +158,8 @@ body {
     margin-top: 20px;
     margin-left: 20px;
 }
+
+
 
 #mainpage-left-Text-Big {
     font-size: 55px;
