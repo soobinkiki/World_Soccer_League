@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
 body {
     background: linear-gradient(90deg, #a9acc9, #bbd4dc, #adcec1);
     margin: 0;
@@ -60,8 +62,20 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    text-align: right;
-    margin-top: 75px;
+    margin-left: 1280px;
+    margin-top: 74px;
+}
+
+#welcomeUserText {
+    position: absolute;
+    margin-top: 76px;
+    margin-right: 420px;
+    font-size: 18px;
+    font-family: fantasy;
+}
+
+#divider {
+    font-size: 30px;
 }
 
 .navHeader {
@@ -69,7 +83,7 @@ body {
     text-decoration: overline;
 }
 
-.navHeader:visited {
+.navHeader:visited, #headerTextVisited:visited {
     color: black;
 }
 .navHeader:hover {
@@ -105,15 +119,17 @@ body {
     border: 2px solid rgb(80, 80, 59)
 }
 
+.currentTime {
+    display: flex;
+    justify-content: center;
+}
+
 .userInfoTextContainer {
     margin-top: 20px;
     margin-left: 350px;
     display: flex;
 }
-#userEditSubmit {
-    margin-left: 100px;
-    margin-top: 10px;
-}
+
 #userEditSubmit:hover{
     transform: scale(1.1);
 }
@@ -154,20 +170,15 @@ body {
     border: none;
 }
 
-#mainpage-left-Text-Big, #mainpage-left-Text-Small {
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-
-
 #mainpage-left-Text-Big {
     font-size: 55px;
+    font-family: 'Ubuntu', sans-serif;
     margin-top: 60px;
     margin-left: 40px;
 }
 #mainpage-left-Text-Small {
     font-size: 23px;
+    font-family: 'Ubuntu', sans-serif;
     margin-top: 60px;
     margin-left: 40px;
 }
@@ -209,12 +220,12 @@ body {
     width: 300px;
     height: 40px;
     border-radius: 10px;
-    margin-left: 40px;
+    margin-left: 30px;
     margin-top: 4px;
 }
 
 #mainpageLoginText {
-    margin-left: 40px;
+    margin-left: 38px;
 }
 
 #editUsernameArea {
@@ -230,6 +241,7 @@ body {
 #login-Text-Big {
     margin-top: 20px;
     font-size: 55px;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 #loginPasswordText {
@@ -306,7 +318,7 @@ a {
                            6.5% 6.5% 6.5% 6.5% 6.5%;
     grid-template-rows: 50px;
     width: 95%;
-    height: 120px;
+    height: 165px;
     margin: auto;
     margin-top: 10px;
     justify-content: center;
@@ -325,6 +337,14 @@ a {
     text-align: center;
 }
 
+#matchDate {
+    margin-top: 7px;
+    text-align: center;
+}
+#matchTime{
+    margin:0;
+    text-align: center;
+}
 .followinglinkContainer {
     display: flex;
     justify-content: center;
@@ -407,6 +427,3 @@ input {
 input:hover {
     cursor:pointer;
 }
-
-
-

@@ -18,7 +18,8 @@ router.post('/', async (req, res) => {
         const newUser = await db.user.create({
             username: req.body.username,
             email: req.body.email,
-            password: hashedPassword
+            password: hashedPassword,
+        
         })
         const encryptedId = AES.encrypt(newUser.id.toString(), 'secret').toString()
         const encryptedIdString = encryptedId.toString()
@@ -32,7 +33,7 @@ router.post('/', async (req, res) => {
 
 router.get('/logout', async (req, res) => {
     res.clearCookie('userId')
-    res.redirect('/')
+     res.redirect('/')  
 })
 
 router.get('/profile', async (req, res) => {
@@ -52,6 +53,11 @@ router.get('/profile', async (req, res) => {
 router.put('/edit/', async (req, res) => {
     try {
         const findUser = await db.user.findByPk(res.locals.user.dataValues.id)
+        if (req.body.editUsername === "") {
+            alert("Please type the username") 
+            return
+        }
+            
         const changeUsername = await findUser.update({
             username: req.body.editUsername
         })

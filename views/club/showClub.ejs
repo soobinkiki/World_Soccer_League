@@ -5,6 +5,8 @@
 <div class="lastMatches">
     <% for( let i = 0; i < matches.length; i++ ) { %>
         <div>
+            <h4 id="matchDate"><%= matches[i].dateEvent%></h4>
+            <h5 id="matchTime"><%= matches[i].strTime  %></h5>
             <h4 id="matchClubClass"><%= matches[i].strHomeTeam %></h4> 
             <% if (matches[i].intHomeScore === null) { %>
                 <h4 id="matchScore">-</h4>

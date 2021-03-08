@@ -1,11 +1,23 @@
 <div class="edit-page">
-    <div style="text-align:center;padding:1em 0;"> 
-        <h3><a style="text-decoration:none;">
-            <span style="color:gray;">Current local time in</span><br />San Francisco, United States</a></h3> 
-        <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=medium&timezone=America%2FLos_Angeles" width="100%" height="115" frameborder="0" seamless></iframe> 
+    <div class="currentTime">
+        <div style="text-align:center;padding:1em 0;"> 
+            <h3><a style="text-decoration:none;">
+                <span style="color:gray;">Current local time in</span><br />San Francisco, United States</a></h3> 
+                <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=medium&timezone=America%2FLos_Angeles" width="100%" height="115" frameborder="0" seamless></iframe> 
+        </div>
+        <div style="text-align:center;padding:1em 0;"> 
+            <h3><a style="text-decoration:none;">
+                <span style="color:gray;">Current local time in</span><br />Texas City, United States</a></h3> 
+                <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=medium&timezone=America%2FChicago" width="100%" height="115" frameborder="0" seamless></iframe> 
+        </div>
+        <div style="text-align:center;padding:1em 0;"> 
+            <h3><a style="text-decoration:none;">
+            <span style="color:gray;">Current local time in</span><br />New York City, United States</a></h3> 
+            <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=medium&timezone=America%2FNew_York" width="100%" height="115" frameborder="0" seamless></iframe>
+        </div>
     </div>
-    <div class="userInfoTextContainer">
-        <form method="POST" action="/users/edit/?_method=PUT">
+    <div>
+        <form class="userInfoTextContainer" method="POST" action="/users/edit/?_method=PUT">
             <h1 id="userInfoText">Username: <input id="editUsernameArea" type="text" name="editUsername" placeholder="<%= currentUser.username %>"></h1></br>
             <input id="userEditSubmit" type="submit" name="editSubmit" value="EDIT USERNAME">
         </form>
