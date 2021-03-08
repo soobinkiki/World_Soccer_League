@@ -6,7 +6,6 @@ const morgan = require('morgan')
 const db = require('./models')
 const methodOverride = require('method-override')
 
-
 const app = express()
 const rowdyResult = rowdy.begin(app)
 const PORT = process.env.PORT || 3000;

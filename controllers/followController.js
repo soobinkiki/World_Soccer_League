@@ -73,7 +73,7 @@ router.post('/club/:clubId', async (req, res) => {
             }
         })
         user.addClub(oneClub)
-        alert("NOW FOLLOWING")    // Think of the way to change the text of the submit button
+        alert("NOW FOLLOWING")
     } catch (err) {
         console.log(err);
     }
@@ -122,7 +122,6 @@ router.delete('/league/:leagueId', async (req, res) => {
 })
 
 router.delete('/club/:clubId', async (req, res) => {
-    console.log("🛳🛳🛳🛳🛳🛳🛳🛳heello3");
     try {
         console.log(req.params.clubIdNum);
         const findClub = await db.club.findOne({ raw:true,
@@ -142,7 +141,5 @@ router.delete('/club/:clubId', async (req, res) => {
         console.log(err);
     }
 })
-
-
 
 module.exports = router

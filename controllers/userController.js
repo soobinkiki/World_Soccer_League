@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt')
 const AES = require('crypto-js/AES')
 const alert = require('alert')
 
-
 router.post('/', async (req, res) => {
     try {
         const hashedPassword = bcrypt.hashSync(req.body.password, 10)
@@ -14,7 +13,6 @@ router.post('/', async (req, res) => {
             return;
         }
 
-        // [ADD] check to see if the username is available
         const newUser = await db.user.create({
             username: req.body.username,
             email: req.body.email,
@@ -57,7 +55,6 @@ router.put('/edit/', async (req, res) => {
             alert("Please type the username") 
             return
         }
-            
         const changeUsername = await findUser.update({
             username: req.body.editUsername
         })
